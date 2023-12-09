@@ -1,7 +1,12 @@
 import './App.css';
+import RegistrationForm from '../registrationForm/RegistrationForm';
 
 const App = () => {
-  return <div>GraphiQL Task</div>;
+  return (
+    <div>
+      <RegistrationForm />
+    </div>
+  );
 };
 
 export default App;
