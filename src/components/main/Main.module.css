@@ -1,4 +1,4 @@
 .main {
-    display: flex;
-    background: #acabab;
+    flex-grow: 1;
+    border-top: 2px solid #cccccc;
 }

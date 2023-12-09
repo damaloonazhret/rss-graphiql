@@ -1,4 +1,4 @@
 .footer {
-    display: flex;
-    background: #8f8f8f;
+    height: 160px;
+    border-top: 2px solid #cccccc;
 }
