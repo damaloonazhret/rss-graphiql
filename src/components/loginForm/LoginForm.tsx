@@ -24,7 +24,7 @@ const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)} noValidate>
-      <h1>Authorization</h1>
+      <h1>Authentication</h1>
       <label>
         Email:
         <input type="text" {...register('email')} />
