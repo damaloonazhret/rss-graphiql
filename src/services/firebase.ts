@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { collection, addDoc, getFirestore } from 'firebase/firestore';
 const ENV = import.meta.env;
 
@@ -31,4 +31,12 @@ const registerUser = async (email: string, password: string): Promise<boolean | 
   }
 };
 
-export { registerUser };
+const loginUser = async (email: string, password: string) => {
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+  } catch (e) {
+    return 'Registration failed.';
+  }
+};
+
+export { registerUser, loginUser };
