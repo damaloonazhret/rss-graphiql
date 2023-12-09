@@ -3,7 +3,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import LoginForm from './LoginForm';
 
 describe('LoginForm', () => {
-  it('renders registration form correctly', () => {
+  it('renders login form correctly', () => {
     render(<LoginForm />);
 
     expect(screen.getByText('Authentication')).toBeInTheDocument();
