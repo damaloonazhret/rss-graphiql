@@ -5,7 +5,6 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
 } from 'firebase/auth';
-import { collection, addDoc, getFirestore } from 'firebase/firestore';
 const ENV = import.meta.env;
 
 const firebaseConfig = {
@@ -18,7 +17,6 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
 const auth = getAuth(app);
 
 const registerUser = async (
@@ -32,12 +30,6 @@ const registerUser = async (
 
     await updateProfile(user, {
       displayName: name,
-    });
-
-    await addDoc(collection(db, 'users'), {
-      uid: user.uid,
-      authProvider: 'local',
-      email,
     });
 
     return true;

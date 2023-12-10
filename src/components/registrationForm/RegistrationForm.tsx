@@ -18,8 +18,8 @@ const RegistrationForm = () => {
 
   const handleFormSubmit = async (data: { name: string; email: string; password: string }) => {
     try {
-      registerUser(data.name, data.email, data.password);
-      navigate('/');
+      await registerUser(data.name, data.email, data.password);
+      navigate('/graphiql');
     } catch (e) {
       console.error(e);
     }
