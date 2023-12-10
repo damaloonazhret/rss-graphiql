@@ -10,7 +10,7 @@ const RegistrationPage = () => {
 
   useEffect(() => {
     if (user) {
-      navigate('/');
+      navigate('/graphiql');
     }
   });
 
