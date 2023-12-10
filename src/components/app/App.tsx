@@ -12,6 +12,7 @@ const App = () => {
       <RegistrationForm />
       <LoginForm />
       {user && <div>Logged as: {user.displayName}</div>}
+      <button onClick={() => auth.signOut()}>Sign out</button>
     </div>
   );
 };
