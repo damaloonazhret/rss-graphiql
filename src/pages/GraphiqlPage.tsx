@@ -1,7 +1,7 @@
 const GraphiqlPage = () => {
   return (
     <>
-      <h1>Graphiql page</h1>
+      <h1>GraphiQL page</h1>
     </>
   );
 };
