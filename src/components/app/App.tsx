@@ -1,19 +1,21 @@
 import './App.css';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from '../../services/firebase';
-import LoginForm from '../loginForm/LoginForm';
-import RegistrationForm from '../registrationForm/RegistrationForm';
+import { Routes, Route } from 'react-router-dom';
+import Layout from '../layout/Layout';
+import WelcomePage from '../../pages/WelcomePage';
+import GraphiqlPage from '../../pages/GraphiqlPage';
+import NotFoundPage from '../../pages/NotFoundPage';
 
 const App = () => {
-  const [user] = useAuthState(auth);
-
   return (
-    <div>
-      <RegistrationForm />
-      <LoginForm />
-      {user && <div>Logged as: {user.displayName}</div>}
-      <button onClick={() => auth.signOut()}>Sign out</button>
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<WelcomePage />} />
+          <Route path="graphiql" element={<GraphiqlPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
+      </Routes>
+    </>
   );
 };
 
