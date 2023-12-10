@@ -1,5 +1,10 @@
 import { initializeApp } from 'firebase/app';
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  signInWithEmailAndPassword,
+  updateProfile,
+} from 'firebase/auth';
 import { collection, addDoc, getFirestore } from 'firebase/firestore';
 const ENV = import.meta.env;
 
@@ -24,12 +29,17 @@ const registerUser = async (
   try {
     const res = await createUserWithEmailAndPassword(auth, email, password);
     const user = res.user;
+
+    await updateProfile(user, {
+      displayName: name,
+    });
+
     await addDoc(collection(db, 'users'), {
       uid: user.uid,
       authProvider: 'local',
-      name,
       email,
     });
+
     return true;
   } catch (e) {
     return 'Registration failed.';
@@ -40,7 +50,7 @@ const loginUser = async (email: string, password: string) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
   } catch (e) {
-    return 'Registration failed.';
+    return 'Login failed.';
   }
 };
 
