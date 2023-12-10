@@ -1,10 +1,15 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import RegistrationForm from './RegistrationForm';
+import { MemoryRouter } from 'react-router-dom';
 
 describe('RegistrationForm', () => {
   it('renders registration form correctly', () => {
-    render(<RegistrationForm />);
+    render(
+      <MemoryRouter>
+        <RegistrationForm />
+      </MemoryRouter>
+    );
 
     expect(screen.getByText('Registration')).toBeInTheDocument();
     expect(screen.getByLabelText('Email:')).toBeInTheDocument();
@@ -13,7 +18,11 @@ describe('RegistrationForm', () => {
   });
 
   it('displays error messages for invalid inputs', async () => {
-    render(<RegistrationForm />);
+    render(
+      <MemoryRouter>
+        <RegistrationForm />
+      </MemoryRouter>
+    );
 
     fireEvent.change(screen.getByLabelText('Email:'), { target: { value: 'invalid-email' } });
     fireEvent.change(screen.getByLabelText('Password:'), { target: { value: 'short' } });

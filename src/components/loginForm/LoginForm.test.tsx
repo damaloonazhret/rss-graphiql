@@ -1,10 +1,15 @@
 import { describe, expect, it } from 'vitest';
 import { fireEvent, render, screen } from '@testing-library/react';
 import LoginForm from './LoginForm';
+import { MemoryRouter } from 'react-router-dom';
 
 describe('LoginForm', () => {
   it('renders login form correctly', () => {
-    render(<LoginForm />);
+    render(
+      <MemoryRouter>
+        <LoginForm />
+      </MemoryRouter>
+    );
 
     expect(screen.getByText('Authentication')).toBeInTheDocument();
     expect(screen.getByLabelText('Email:')).toBeInTheDocument();
@@ -13,7 +18,11 @@ describe('LoginForm', () => {
   });
 
   it('displays error messages for invalid inputs', async () => {
-    render(<LoginForm />);
+    render(
+      <MemoryRouter>
+        <LoginForm />
+      </MemoryRouter>
+    );
 
     fireEvent.change(screen.getByLabelText('Email:'), { target: { value: 'invalid-email' } });
     fireEvent.change(screen.getByLabelText('Password:'), { target: { value: 'short' } });
