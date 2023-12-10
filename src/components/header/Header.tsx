@@ -19,7 +19,7 @@ const Header = () => {
       <div>
         {user ? (
           <>
-            <div>Logged as: {user.displayName}</div>
+            <div>Logged as: {user.email}</div>
             <button onClick={() => auth.signOut()}>Sign out</button>
           </>
         ) : (
