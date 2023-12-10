@@ -1,10 +1,12 @@
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { loginUser } from '../../services/firebase';
 import { loginSchema } from '../../services/validation';
 import styles from './login-form.module.css';
 
 const LoginForm = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -17,6 +19,7 @@ const LoginForm = () => {
   const handleFormSubmit = async (data: { email: string; password: string }) => {
     try {
       loginUser(data.email, data.password);
+      navigate('/');
     } catch (e) {
       console.error(e);
     }
