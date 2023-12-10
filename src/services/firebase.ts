@@ -54,4 +54,4 @@ const loginUser = async (email: string, password: string) => {
   }
 };
 
-export { registerUser, loginUser };
+export { auth, registerUser, loginUser };
