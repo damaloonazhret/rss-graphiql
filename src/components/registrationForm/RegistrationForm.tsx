@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { registerUser } from '../../services/firebase';
-import schema from '../../services/validation';
+import { registerSchema } from '../../services/validation';
 import styles from './registration-form.module.css';
 
 const RegistrationForm = () => {
@@ -10,13 +10,13 @@ const RegistrationForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(registerSchema),
     mode: 'onChange',
   });
 
-  const handleFormSubmit = async (data: { email: string; password: string }) => {
+  const handleFormSubmit = async (data: { name: string; email: string; password: string }) => {
     try {
-      registerUser(data.email, data.password);
+      registerUser(data.name, data.email, data.password);
     } catch (e) {
       console.error(e);
     }
@@ -25,6 +25,13 @@ const RegistrationForm = () => {
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)} noValidate>
       <h1>Registration</h1>
+      <label>
+        Name:
+        <input type="text" {...register('name')} />
+      </label>
+      <div className={styles['field-error']}>
+        <p>{errors.name?.message}</p>
+      </div>
       <label>
         Email:
         <input type="text" {...register('email')} />
@@ -38,6 +45,13 @@ const RegistrationForm = () => {
       </label>
       <div className={styles['field-error']}>
         <p>{errors.password?.message}</p>
+      </div>
+      <label>
+        Password confirm:
+        <input type="password" {...register('passwordConfirm')} />
+      </label>
+      <div className={styles['field-error']}>
+        <p>{errors.passwordConfirm?.message}</p>
       </div>
 
       <button type="submit">Register</button>

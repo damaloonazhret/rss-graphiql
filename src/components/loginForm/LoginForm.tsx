@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { loginUser } from '../../services/firebase';
-import schema from '../../services/validation';
+import { loginSchema } from '../../services/validation';
 import styles from './login-form.module.css';
 
 const LoginForm = () => {
@@ -10,7 +10,7 @@ const LoginForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(loginSchema),
     mode: 'onChange',
   });
 

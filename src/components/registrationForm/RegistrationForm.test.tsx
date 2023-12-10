@@ -17,6 +17,7 @@ describe('RegistrationForm', () => {
 
     fireEvent.change(screen.getByLabelText('Email:'), { target: { value: 'invalid-email' } });
     fireEvent.change(screen.getByLabelText('Password:'), { target: { value: 'short' } });
+    fireEvent.change(screen.getByLabelText('Password confirm:'), { target: { value: 'short' } });
     fireEvent.click(screen.getByRole('button', { name: 'Register' }));
 
     expect(
