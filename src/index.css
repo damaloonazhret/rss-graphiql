@@ -1,0 +1,31 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  font-family:
+    Segoe UI,
+    Roboto,
+    Helvetica Neue,
+    Arial,
+    sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+.active {
+  background: #ffffff;
+  color: #457c8b !important;
+}
