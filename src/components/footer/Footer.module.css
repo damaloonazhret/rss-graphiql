@@ -1,4 +1,6 @@
 .footer {
     height: 160px;
     border-top: 2px solid #cccccc;
+    background: #2d444d;
+    color: #ffffff;
 }
