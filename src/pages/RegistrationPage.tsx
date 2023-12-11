@@ -1,23 +1,20 @@
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import RegistrationForm from '../components/registrationForm/RegistrationForm';
 import { auth } from '../services/firebase';
 import { useEffect } from 'react';
 
-const GraphiqlPage = () => {
+const RegistrationPage = () => {
   const navigate = useNavigate();
   const [user] = useAuthState(auth);
 
   useEffect(() => {
-    if (!user) {
-      navigate('/login');
+    if (user) {
+      navigate('/graphiql');
     }
   });
 
-  return (
-    <>
-      <h1>GraphiQL page</h1>
-    </>
-  );
+  return <RegistrationForm />;
 };
 
-export default GraphiqlPage;
+export default RegistrationPage;
