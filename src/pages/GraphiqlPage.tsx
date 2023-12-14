@@ -1,9 +1,11 @@
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../services/firebase';
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
+import { LanguageContext } from '../context/localization';
 
 const GraphiqlPage = () => {
+  const { languageData } = useContext(LanguageContext);
   const navigate = useNavigate();
   const [user] = useAuthState(auth);
 
@@ -15,7 +17,7 @@ const GraphiqlPage = () => {
 
   return (
     <>
-      <h1>GraphiQL page</h1>
+      <h1>{languageData.graphiqlPage}</h1>
     </>
   );
 };

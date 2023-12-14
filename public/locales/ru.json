@@ -1,0 +1,13 @@
+{
+  "login": "Вход",
+  "register": "Регистрация",
+  "logout": "Выход",
+  "language": "Язык",
+  "loggedAs": "Вы вошли как",
+  "name": "Имя",
+  "email": "Электронная почта",
+  "password": "Пароль",
+  "passwordConfirm": "Подтвердите пароль",
+  "welcome": "Добро пожаловать",
+  "graphiqlPage": "Страница GraphiQL"
+}

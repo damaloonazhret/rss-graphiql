@@ -4,8 +4,11 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { loginUser } from '../../services/firebase';
 import { loginSchema } from '../../services/validation';
 import styles from './login-form.module.css';
+import { useContext } from 'react';
+import { LanguageContext } from '../../context/localization';
 
 const LoginForm = () => {
+  const { languageData } = useContext(LanguageContext);
   const navigate = useNavigate();
   const {
     register,
@@ -27,23 +30,23 @@ const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)} noValidate>
-      <h1>Authentication</h1>
+      <h1>{languageData.login}</h1>
       <label>
-        Email:
+        {languageData.email}:
         <input type="text" {...register('email')} />
       </label>
       <div className={styles['field-error']}>
         <p>{errors.email?.message}</p>
       </div>
       <label>
-        Password:
+        {languageData.password}:
         <input type="password" {...register('password')} />
       </label>
       <div className={styles['field-error']}>
         <p>{errors.password?.message}</p>
       </div>
 
-      <button type="submit">Login</button>
+      <button type="submit">{languageData.login}</button>
     </form>
   );
 };

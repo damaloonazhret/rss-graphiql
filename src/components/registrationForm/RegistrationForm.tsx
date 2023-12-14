@@ -4,8 +4,11 @@ import { registerUser } from '../../services/firebase';
 import { registerSchema } from '../../services/validation';
 import styles from './registration-form.module.css';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { LanguageContext } from '../../context/localization';
 
 const RegistrationForm = () => {
+  const { languageData } = useContext(LanguageContext);
   const navigate = useNavigate();
   const {
     register,
@@ -27,37 +30,37 @@ const RegistrationForm = () => {
 
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)} noValidate>
-      <h1>Registration</h1>
+      <h1>{languageData.register}</h1>
       <label>
-        Name:
+        {languageData.name}:
         <input type="text" {...register('name')} />
       </label>
       <div className={styles['field-error']}>
         <p>{errors.name?.message}</p>
       </div>
       <label>
-        Email:
+        {languageData.email}:
         <input type="text" {...register('email')} />
       </label>
       <div className={styles['field-error']}>
         <p>{errors.email?.message}</p>
       </div>
       <label>
-        Password:
+        {languageData.password}:
         <input type="password" {...register('password')} />
       </label>
       <div className={styles['field-error']}>
         <p>{errors.password?.message}</p>
       </div>
       <label>
-        Password confirm:
+        {languageData.passwordConfirm}:
         <input type="password" {...register('passwordConfirm')} />
       </label>
       <div className={styles['field-error']}>
         <p>{errors.passwordConfirm?.message}</p>
       </div>
 
-      <button type="submit">Register</button>
+      <button type="submit">{languageData.register}</button>
     </form>
   );
 };
