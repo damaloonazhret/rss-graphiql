@@ -19,7 +19,7 @@ const Footer = () => {
           </div>
         </div>
         <div className={styles.year}>
-          <span>2023-2024</span>
+          <span className="a">2023-2024</span>
         </div>
         <a href="https://rs.school/react/">
           <img
