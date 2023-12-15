@@ -4,20 +4,25 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { loginUser } from '../../services/firebase';
 import { loginSchema } from '../../services/validation';
 import styles from './login-form.module.css';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { LanguageContext } from '../../context/localization';
 
 const LoginForm = () => {
-  const { languageData } = useContext(LanguageContext);
+  const { language, languageData } = useContext(LanguageContext);
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({
-    resolver: yupResolver(loginSchema),
-    mode: 'onChange',
+    resolver: yupResolver(loginSchema(languageData)),
+    mode: 'onTouched',
   });
+
+  useEffect(() => {
+    reset();
+  }, [language]);
 
   const handleFormSubmit = async (data: { email: string; password: string }) => {
     try {

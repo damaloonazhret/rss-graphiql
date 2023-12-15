@@ -4,20 +4,26 @@ import { registerUser } from '../../services/firebase';
 import { registerSchema } from '../../services/validation';
 import styles from './registration-form.module.css';
 import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { LanguageContext } from '../../context/localization';
 
 const RegistrationForm = () => {
-  const { languageData } = useContext(LanguageContext);
+  const { language, languageData } = useContext(LanguageContext);
   const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({
-    resolver: yupResolver(registerSchema),
-    mode: 'onChange',
+    resolver: yupResolver(registerSchema(languageData)),
+    mode: 'onTouched',
   });
+
+  useEffect(() => {
+    reset();
+  }, [language]);
 
   const handleFormSubmit = async (data: { name: string; email: string; password: string }) => {
     try {
