@@ -4,13 +4,9 @@ const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 
 const loginSchema = (languageData: Record<string, string>) => {
   return yup.object().shape({
-    email: yup
-      .string()
-      .required(languageData.emailRequired)
-      .matches(emailRegex, {
-        message: languageData.emailErrorMessage,
-      })
-      .required(languageData.emailRequired),
+    email: yup.string().required(languageData.emailRequired).matches(emailRegex, {
+      message: languageData.emailErrorMessage,
+    }),
     password: yup.string().required(languageData.passwordRequired),
   });
 };
@@ -19,20 +15,14 @@ const registerSchema = (languageData: Record<string, string>) => {
   return yup.object().shape({
     name: yup
       .string()
-      .min(1, languageData.nameAtLeastOneCharacter)
-      .required(languageData.nameRequired),
-    email: yup
-      .string()
-      .matches(emailRegex, {
-        message: languageData.emailErrorMessage,
-      })
-      .required(languageData.emailRequired),
-    password: yup
-      .string()
-      .matches(passwordRegex, {
-        message: languageData.passwordErrorMessage,
-      })
-      .required(languageData.passwordRequired),
+      .required(languageData.nameRequired)
+      .min(1, languageData.nameAtLeastOneCharacter),
+    email: yup.string().required(languageData.emailRequired).matches(emailRegex, {
+      message: languageData.emailErrorMessage,
+    }),
+    password: yup.string().required(languageData.passwordRequired).matches(passwordRegex, {
+      message: languageData.passwordErrorMessage,
+    }),
     passwordConfirm: yup.string().oneOf([yup.ref('password')], languageData.passwordMatch),
   });
 };

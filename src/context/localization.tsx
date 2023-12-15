@@ -1,6 +1,8 @@
 import React, { Dispatch, ReactNode, useEffect } from 'react';
 import { createContext, useState } from 'react';
 import { Language } from '../types/enums';
+import en from '../locales/en.json';
+import ru from '../locales/ru.json';
 
 interface LanguageContext {
   language: Language;
@@ -22,20 +24,26 @@ const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [languageData, setLanguageData] = useState({});
 
   useEffect(() => {
-    fetchLanguageData();
+    setupLanguageData();
   }, []);
 
   useEffect(() => {
-    fetchLanguageData();
+    setupLanguageData();
     localStorage.setItem('language', language);
   }, [language]);
 
-  const fetchLanguageData = () => {
-    const dataUrl = `../locales/${language}.json`;
-    fetch(dataUrl)
-      .then((response) => response.json())
-      .then((data) => setLanguageData(data))
-      .catch((error) => console.error('Error fetching language data:', error));
+  const setupLanguageData = () => {
+    switch (language) {
+      case Language.EN:
+        setLanguageData(en);
+        return en;
+      case Language.RU:
+        setLanguageData(ru);
+        return ru;
+      default:
+        setLanguageData(en);
+        return en;
+    }
   };
 
   return (
