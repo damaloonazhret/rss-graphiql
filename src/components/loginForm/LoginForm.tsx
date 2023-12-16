@@ -37,17 +37,17 @@ const LoginForm = () => {
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)} noValidate>
       <h1>{languageData.login}</h1>
-      <Box component="label" sx={{ display: 'block' }}>
+      <Box component="label" sx={{ display: 'block' }} htmlFor="email">
         {languageData.email}:
       </Box>
-      <input type="text" {...register('email')} />
+      <input type="text" {...register('email')} id="email" />
       <div className={styles['field-error']}>
         <p>{errors.email?.message}</p>
       </div>
-      <Box component="label" sx={{ display: 'block' }}>
+      <Box component="label" sx={{ display: 'block' }} htmlFor="password">
         {languageData.password}:
       </Box>
-      <input type="password" {...register('password')} />
+      <input type="password" {...register('password')} id="password" />
       <div className={styles['field-error']}>
         <p>{errors.password?.message}</p>
       </div>

@@ -38,31 +38,31 @@ const RegistrationForm = () => {
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)} noValidate>
       <h1>{languageData.register}</h1>
-      <Box component="label" sx={{ display: 'block' }}>
+      <Box component="label" sx={{ display: 'block' }} htmlFor="name">
         {languageData.name}:
       </Box>
-      <input type="text" {...register('name')} />
+      <input type="text" {...register('name')} id="name" />
       <div className={styles['field-error']}>
         <p>{errors.name?.message}</p>
       </div>
-      <Box component="label" sx={{ display: 'block' }}>
+      <Box component="label" sx={{ display: 'block' }} htmlFor="email">
         {languageData.email}:
       </Box>
-      <input type="text" {...register('email')} />
+      <input type="text" {...register('email')} id="email" />
       <div className={styles['field-error']}>
         <p>{errors.email?.message}</p>
       </div>
-      <Box component="label" sx={{ display: 'block' }}>
+      <Box component="label" sx={{ display: 'block' }} htmlFor="password">
         {languageData.password}:
       </Box>
-      <input type="password" {...register('password')} />
+      <input type="password" {...register('password')} id="password" />
       <div className={styles['field-error']}>
         <p>{errors.password?.message}</p>
       </div>
-      <Box component="label" sx={{ display: 'block' }}>
+      <Box component="label" sx={{ display: 'block' }} htmlFor="passwordConfirm">
         {languageData.passwordConfirm}:
       </Box>
-      <input type="password" {...register('passwordConfirm')} />
+      <input type="password" {...register('passwordConfirm')} id="passwordConfirm" />
       <div className={styles['field-error']}>
         <p>{errors.passwordConfirm?.message}</p>
       </div>
