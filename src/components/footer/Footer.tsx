@@ -8,7 +8,7 @@ const Footer = () => {
         <div className={styles['github-wrapper']}>
           <Box
             component="img"
-            sx={{ width: { xs: '20px', sm: '68px' } }}
+            sx={{ width: { xs: '20px', sm: '68px' }, display: { xs: 'none', sm: 'block' } }}
             src="src/assets/img/github-mark-white.svg"
           />
           <Box className={styles['github-link']}>
