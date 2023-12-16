@@ -58,7 +58,7 @@ const Header = () => {
 
   return (
     <AppBar position="sticky" sx={{ py: '6px', backgroundColor: '#457c8b', zIndex: 1 }}>
-      <Container maxWidth="xl">
+      <Container>
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton size="small" onClick={handleOpenNavMenu} color="inherit">
