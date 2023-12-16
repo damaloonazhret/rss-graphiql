@@ -6,6 +6,7 @@ import { loginSchema } from '../../services/validation';
 import styles from './login-form.module.css';
 import { useContext, useEffect } from 'react';
 import { LanguageContext } from '../../context/localization';
+import { Box, Button } from '@mui/material';
 
 const LoginForm = () => {
   const { language, languageData } = useContext(LanguageContext);
@@ -36,22 +37,24 @@ const LoginForm = () => {
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)} noValidate>
       <h1>{languageData.login}</h1>
-      <label>
+      <Box component="label" sx={{ display: 'block' }}>
         {languageData.email}:
-        <input type="text" {...register('email')} />
-      </label>
+      </Box>
+      <input type="text" {...register('email')} />
       <div className={styles['field-error']}>
         <p>{errors.email?.message}</p>
       </div>
-      <label>
+      <Box component="label" sx={{ display: 'block' }}>
         {languageData.password}:
-        <input type="password" {...register('password')} />
-      </label>
+      </Box>
+      <input type="password" {...register('password')} />
       <div className={styles['field-error']}>
         <p>{errors.password?.message}</p>
       </div>
 
-      <button type="submit">{languageData.login}</button>
+      <Button type="submit" variant="contained" sx={{ mt: 2 }}>
+        {languageData.login}
+      </Button>
     </form>
   );
 };

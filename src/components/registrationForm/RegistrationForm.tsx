@@ -6,6 +6,7 @@ import styles from './registration-form.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useContext, useEffect } from 'react';
 import { LanguageContext } from '../../context/localization';
+import { Box, Button } from '@mui/material';
 
 const RegistrationForm = () => {
   const { language, languageData } = useContext(LanguageContext);
@@ -37,36 +38,38 @@ const RegistrationForm = () => {
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)} noValidate>
       <h1>{languageData.register}</h1>
-      <label>
+      <Box component="label" sx={{ display: 'block' }}>
         {languageData.name}:
-        <input type="text" {...register('name')} />
-      </label>
+      </Box>
+      <input type="text" {...register('name')} />
       <div className={styles['field-error']}>
         <p>{errors.name?.message}</p>
       </div>
-      <label>
+      <Box component="label" sx={{ display: 'block' }}>
         {languageData.email}:
-        <input type="text" {...register('email')} />
-      </label>
+      </Box>
+      <input type="text" {...register('email')} />
       <div className={styles['field-error']}>
         <p>{errors.email?.message}</p>
       </div>
-      <label>
+      <Box component="label" sx={{ display: 'block' }}>
         {languageData.password}:
-        <input type="password" {...register('password')} />
-      </label>
+      </Box>
+      <input type="password" {...register('password')} />
       <div className={styles['field-error']}>
         <p>{errors.password?.message}</p>
       </div>
-      <label>
+      <Box component="label" sx={{ display: 'block' }}>
         {languageData.passwordConfirm}:
-        <input type="password" {...register('passwordConfirm')} />
-      </label>
+      </Box>
+      <input type="password" {...register('passwordConfirm')} />
       <div className={styles['field-error']}>
         <p>{errors.passwordConfirm?.message}</p>
       </div>
 
-      <button type="submit">{languageData.register}</button>
+      <Button type="submit" variant="contained" sx={{ mt: 2 }}>
+        {languageData.register}
+      </Button>
     </form>
   );
 };
