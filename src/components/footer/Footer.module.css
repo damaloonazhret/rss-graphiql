@@ -4,8 +4,8 @@
   align-items: center;
   height: 100px;
   border-top: 2px solid #cccccc;
-  background: #2d444d;
   color: #ffffff;
+  background: #2d444d;
 }
 
 .footer a, span {
@@ -14,22 +14,14 @@
 }
 
 .github-wrapper {
+    gap: 6px;
     display: flex;
     align-items: center;
-    gap: 6px;
-}
-
-.github-logo {
-  width: 68px;
 }
 
 .github-link {
   display: flex;
   flex-direction: column;
-}
-
-.rsschool-logo {
-  width: 120px;
 }
 
 .year span{
