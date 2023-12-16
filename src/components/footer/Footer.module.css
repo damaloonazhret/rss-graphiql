@@ -1,22 +1,21 @@
 .footer {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
   height: 100px;
+  padding: 10px;
   border-top: 2px solid #cccccc;
   color: #ffffff;
   background: #2d444d;
 }
 
-.footer a, span {
+.footer a,
+span {
   color: #ffffff;
   font-size: 18px;
 }
 
 .github-wrapper {
-    gap: 6px;
-    display: flex;
-    align-items: center;
+  gap: 6px;
+  display: flex;
+  align-items: center;
 }
 
 .github-link {
@@ -24,6 +23,6 @@
   flex-direction: column;
 }
 
-.year span{
-    font-size: 20px;
+.year span {
+  font-size: 20px;
 }

@@ -1,10 +1,10 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 import styles from './Footer.module.css';
 
 const Footer = () => {
   return (
-    <>
-      <Box className={styles.footer}>
+    <Box className={styles.footer}>
+      <Container sx={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
         <div className={styles['github-wrapper']}>
           <Box
             component="img"
@@ -36,8 +36,8 @@ const Footer = () => {
             alt="RSSchool"
           />
         </a>
-      </Box>
-    </>
+      </Container>
+    </Box>
   );
 };
 
