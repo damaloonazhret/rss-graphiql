@@ -6,9 +6,11 @@ import styles from './Header.module.css';
 const Header = () => {
   const [user] = useAuthState(auth);
 
+  console.log('user', user);
+
   return (
     <>
-      <div className={styles.header}>
+      <div className={styles.header} data-testid="header">
         <NavLink className={styles['nav-item']} to="/">
           Welcome
         </NavLink>

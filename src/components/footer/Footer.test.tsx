@@ -1,14 +1,11 @@
-/* eslint-disable testing-library/no-node-access */
 import { it, expect, describe } from 'vitest';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Footer from './Footer';
 
 describe('component Footer', () => {
-  it('Test - availability element with class footer', () => {
+  it('Test - the component footer is displayed in the DOM', () => {
     render(<Footer />);
 
-    const element = document.getElementsByClassName(`_footer_d0d8de`);
-
-    expect(element.length).toBe(1);
+    expect(screen.getAllByTestId('footer'));
   });
 });

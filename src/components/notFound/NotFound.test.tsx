@@ -1,20 +1,18 @@
 /* eslint-disable testing-library/no-node-access */
-import { test, expect, describe } from 'vitest';
+import { it, expect, describe } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import NotFound from './NotFound';
 import App from '../app/App';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('component NotFounde', () => {
-  test('Test - availability class footer', () => {
+  it('Test - the component NotFound is displayed in the DOM', () => {
     render(<NotFound />);
 
-    const element = document.getElementsByClassName(`_not-found_93c38c`);
-
-    expect(element.length).toBe(1);
+    expect(screen.getAllByTestId('not-found'));
   });
 
-  test('Test - the presence of an error when navigating to a non-existent page', () => {
+  it('Test - the presence of an error when navigating to a non-existent page', () => {
     render(
       <MemoryRouter initialEntries={['/anyadress']}>
         <App />

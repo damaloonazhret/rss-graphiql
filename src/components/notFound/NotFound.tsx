@@ -2,7 +2,7 @@ import styles from './NotFound.module.css';
 
 const NotFound = () => {
   return (
-    <div className={styles['not-found']}>
+    <div className={styles['not-found']} data-testid="not-found">
       <p>Error 404</p>
       <p>Not found page</p>
     </div>
