@@ -2,7 +2,7 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Layout from '../layout/Layout';
 import WelcomePage from '../../pages/WelcomePage';
-import GraphiqlPage from '../../pages/GraphiqlPage';
+import GraphiqlPage from '../../pages/GraphiqlPage.tsx';
 import NotFoundPage from '../../pages/NotFoundPage';
 import LoginPage from '../../pages/LoginPage';
 import RegistrationPage from '../../pages/RegistrationPage';
