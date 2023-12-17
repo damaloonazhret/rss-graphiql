@@ -3,10 +3,7 @@ import { render, screen } from '@testing-library/react';
 import Header from './Header';
 import { MemoryRouter } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
-
-interface dataFirebaseUser {
-  email: string;
-}
+import { User } from 'firebase/auth';
 
 describe('component Header', () => {
   vi.mock('react-firebase-hooks/auth', () => {
@@ -16,10 +13,8 @@ describe('component Header', () => {
   });
 
   it('Test - when the user is not logged in', () => {
-    const user = null;
+    const user = null as unknown as User;
 
-    // eslint-disable-next-line
-    // @ts-ignore: Unreachable code error
     vi.mocked(useAuthState).mockReturnValue([user, false, undefined]);
     render(
       <MemoryRouter>
@@ -33,12 +28,10 @@ describe('component Header', () => {
   });
 
   it('Test - when the user is logged in', () => {
-    const user: dataFirebaseUser = {
-      email: 'abc@abc.com',
-    };
+    const user = {
+      email: 'evgeniy@a.ru',
+    } as unknown as User;
 
-    // eslint-disable-next-line
-    // @ts-ignore: Unreachable code error
     vi.mocked(useAuthState).mockReturnValue([user, false, undefined]);
     render(
       <MemoryRouter>
