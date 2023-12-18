@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import style from './SchemaPage.module.scss';
-import { requestSchema } from '../../services/requestSchema.ts';
+import { defaultAPI, requestSchema } from '../../services/requestSchema.ts';
 
 const SchemaPage = () => {
   const [schemaInfo, setSchemaInfo] = useState(null);
@@ -36,6 +36,9 @@ const SchemaPage = () => {
   return (
     <div>
       <h2>GraphQL Schema Info:</h2>
+      <button onClick={() => console.log(defaultAPI)} className={style.schemaButton}>
+        Change API
+      </button>
       <pre className={style.schema}>{JSON.stringify(schemaInfo, null, 2)}</pre>
     </div>
   );

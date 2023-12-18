@@ -1,13 +1,5 @@
 export const defaultAPI = 'https://rickandmortyapi.graphcdn.app/';
-export const requestSchema = async () => {
-  const response = await fetch(defaultAPI, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-    },
-    body: JSON.stringify({
-      query: `
+const initialQuery = `
               {
                 __schema {
                   queryType {
@@ -17,7 +9,16 @@ export const requestSchema = async () => {
                   }
                 }
               }
-            `,
+            `;
+export const requestSchema = async () => {
+  const response = await fetch(defaultAPI, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+    body: JSON.stringify({
+      query: initialQuery,
     }),
   });
   const result = await response.json();
