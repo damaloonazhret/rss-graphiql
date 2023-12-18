@@ -4,13 +4,11 @@ import { Outlet } from 'react-router-dom';
 
 const Main = () => {
   return (
-    <>
-      <div className={styles.main} data-testid="main">
-        <Container>
-          <Outlet />
-        </Container>
-      </div>
-    </>
+    <div className={styles.main}>
+      <Container>
+        <Outlet />
+      </Container>
+    </div>
   );
 };
 
