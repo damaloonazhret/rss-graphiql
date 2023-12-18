@@ -1,34 +1,38 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import style from './SchemaPage.module.scss';
 import { defaultAPI, requestSchema } from '../../services/requestSchema.ts';
+import { RootState } from '../../redux/store.ts';
+import { useDispatch, useSelector } from 'react-redux';
+import { setError, setLoading, setSchemaInfo } from '../../redux/slices/schemaSlice.ts';
 
 const SchemaPage = () => {
-  const [schemaInfo, setSchemaInfo] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const dispatch = useDispatch();
+  const { schemaInfo, loading, error } = useSelector((state: RootState) => state.schema);
 
   useEffect(() => {
     const fetchSchemaInfo = async () => {
+      dispatch(setLoading(true));
       const result = await requestSchema();
+      console.log(result.data);
       try {
         if (result.errors) {
-          setError(result.errors[0].message);
+          dispatch(setError(result.errors[0].message));
         } else {
-          setSchemaInfo(result.data);
+          dispatch(setSchemaInfo(result.data));
         }
       } catch (error: unknown) {
         if (error instanceof Error) {
-          setError(error.message);
+          dispatch(setError(error.message));
         } else {
-          setError('An unknown error occurred');
+          dispatch(setError('An unknown error occurred'));
         }
       } finally {
-        setLoading(false);
+        dispatch(setLoading(false));
       }
     };
 
     fetchSchemaInfo();
-  }, []);
+  }, [dispatch]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;

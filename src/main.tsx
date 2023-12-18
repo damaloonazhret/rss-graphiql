@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './components/app/App.tsx';
 import ErrorBoundary from './components/errorBoundary/ErrorBoundary.tsx';
+import { Provider } from 'react-redux';
+import store from './redux/store.ts';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <ErrorBoundary>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </ErrorBoundary>
+  <Provider store={store}>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ErrorBoundary>
+  </Provider>
 );
