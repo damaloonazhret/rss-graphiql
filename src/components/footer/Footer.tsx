@@ -3,7 +3,7 @@ import styles from './Footer.module.css';
 
 const Footer = () => {
   return (
-    <Box className={styles.footer}>
+    <Box className={styles.footer} data-testid="footer">
       <Container sx={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
         <div className={styles['github-wrapper']}>
           <Box
