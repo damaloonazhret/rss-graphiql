@@ -2,16 +2,19 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import RegistrationForm from './RegistrationForm';
 import { MemoryRouter } from 'react-router-dom';
+import { LanguageProvider } from '../../context/localization';
 
 describe('RegistrationForm', () => {
   it('renders registration form correctly', () => {
     render(
       <MemoryRouter>
-        <RegistrationForm />
+        <LanguageProvider>
+          <RegistrationForm />
+        </LanguageProvider>
       </MemoryRouter>
     );
 
-    expect(screen.getByText('Registration')).toBeInTheDocument();
+    expect(screen.getAllByText('Register')[0]).toBeInTheDocument();
     expect(screen.getByLabelText('Email:')).toBeInTheDocument();
     expect(screen.getByLabelText('Password:')).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Register' })).toBeInTheDocument();
@@ -20,13 +23,15 @@ describe('RegistrationForm', () => {
   it('displays error messages for invalid inputs', async () => {
     render(
       <MemoryRouter>
-        <RegistrationForm />
+        <LanguageProvider>
+          <RegistrationForm />
+        </LanguageProvider>
       </MemoryRouter>
     );
 
     fireEvent.change(screen.getByLabelText('Email:'), { target: { value: 'invalid-email' } });
     fireEvent.change(screen.getByLabelText('Password:'), { target: { value: 'short' } });
-    fireEvent.change(screen.getByLabelText('Password confirm:'), { target: { value: 'short' } });
+    fireEvent.change(screen.getByLabelText('Confirm password:'), { target: { value: 'short' } });
     fireEvent.click(screen.getByRole('button', { name: 'Register' }));
 
     expect(

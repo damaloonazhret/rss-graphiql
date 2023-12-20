@@ -1,7 +1,6 @@
 .main {
     flex-grow: 1;
-    border-top: 2px solid #cccccc;
-    background: #90bac7;
-    color: #ffffff;
     padding: 10px;
+    color: #ffffff;
+    background: #90bac7;
 }
