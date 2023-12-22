@@ -21,7 +21,7 @@ const RegistrationForm = () => {
     reset,
   } = useForm({
     resolver: yupResolver(registerSchema(languageData)),
-    mode: 'onTouched',
+    mode: 'onChange',
   });
 
   useEffect(() => {

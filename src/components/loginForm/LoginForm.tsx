@@ -20,7 +20,7 @@ const LoginForm = () => {
     reset,
   } = useForm({
     resolver: yupResolver(loginSchema(languageData)),
-    mode: 'onTouched',
+    mode: 'onChange',
   });
 
   useEffect(() => {

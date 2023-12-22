@@ -25,6 +25,7 @@ const Header = () => {
     const newLanguage = language === Language.EN ? Language.RU : Language.EN;
     if (setLanguage) {
       setLanguage(newLanguage);
+      window.location.reload();
     }
   };
 
