@@ -7,7 +7,7 @@ import styles from './login-form.module.css';
 import { useContext } from 'react';
 import { LanguageContext } from '../../context/localization';
 import { Box, Button } from '@mui/material';
-import { showToastError } from '../../services/toasts';
+import { showToastError, showToastSuccess } from '../../services/toasts';
 import { FirebaseError } from 'firebase/app';
 
 const LoginForm = () => {
@@ -25,6 +25,7 @@ const LoginForm = () => {
   const handleFormSubmit = async (data: { email: string; password: string }) => {
     try {
       await loginUser(data.email, data.password);
+      showToastSuccess(languageData.loginSuccess);
       navigate('/graphiql');
     } catch (e: unknown) {
       if (e instanceof FirebaseError) {

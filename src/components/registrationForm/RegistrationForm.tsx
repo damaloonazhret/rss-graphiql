@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { LanguageContext } from '../../context/localization';
 import { Box, Button } from '@mui/material';
-import { showToastError } from '../../services/toasts';
+import { showToastError, showToastSuccess } from '../../services/toasts';
 import { FirebaseError } from 'firebase/app';
 
 const RegistrationForm = () => {
@@ -26,6 +26,7 @@ const RegistrationForm = () => {
   const handleFormSubmit = async (data: { name: string; email: string; password: string }) => {
     try {
       await registerUser(data.name, data.email, data.password);
+      showToastSuccess(languageData.registerSuccess);
       navigate('/graphiql');
     } catch (e: unknown) {
       if (e instanceof FirebaseError) {

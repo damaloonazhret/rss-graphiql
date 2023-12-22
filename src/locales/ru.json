@@ -21,5 +21,6 @@
   "registerSuccess": "Регистрация успешна",
   "invalidCredentials": "Неверные учетные данные",
   "somethingWentWrong": "Ошибка",
-  "emailAlreadyRegistered": "Электронная почта уже зарегистрирована"
+  "emailAlreadyRegistered": "Электронная почта уже зарегистрирована",
+  "loginSuccess": "Вход успешен"
 }

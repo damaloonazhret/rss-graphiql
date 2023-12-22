@@ -21,5 +21,6 @@
   "registerSuccess": "Registration success",
   "invalidCredentials": "Invalid credentials",
   "somethingWentWrong": "Something went wrong",
-  "emailAlreadyRegistered": "Email already registered"
+  "emailAlreadyRegistered": "Email already registered",
+  "loginSuccess": "Login success"
 }
