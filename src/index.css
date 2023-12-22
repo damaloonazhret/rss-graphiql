@@ -19,6 +19,11 @@ a {
   flex-direction: column;
 }
 
+input {
+  display: block;
+  width: 100%;
+}
+
 .MuiMenu-root ul {
   display: flex;
   flex-direction: column;
