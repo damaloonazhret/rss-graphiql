@@ -39,7 +39,7 @@ const Header = () => {
 
   const pagesLinks = () => {
     return (
-      <>
+      <div>
         <NavLink to="/">
           <Button className={styles.button} variant="contained">
             <Typography textAlign="center">{languageData.welcome}</Typography>
@@ -52,7 +52,7 @@ const Header = () => {
             </Button>
           </NavLink>
         )}
-      </>
+      </div>
     );
   };
 

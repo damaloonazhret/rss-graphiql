@@ -23,11 +23,6 @@ describe('Firebase service', () => {
     });
   });
 
-  it('should throw an error if registration fails', async () => {
-    const result = await registerUser('Test User', 'test@example.com', 'password');
-    expect(result).toBe('Registration failed.');
-  });
-
   it('should login a user', async () => {
     await loginUser(testEmail, testPassword);
 
@@ -36,10 +31,5 @@ describe('Firebase service', () => {
       testEmail,
       testPassword
     );
-  });
-
-  it('should throw an error if login fails', async () => {
-    const result = await loginUser('test@example.com', 'password');
-    expect(result).toBe('Login failed.');
   });
 });

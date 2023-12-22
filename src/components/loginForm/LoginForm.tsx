@@ -7,6 +7,8 @@ import styles from './login-form.module.css';
 import { useContext, useEffect } from 'react';
 import { LanguageContext } from '../../context/localization';
 import { Box, Button } from '@mui/material';
+import { showToastError } from '../../services/toasts';
+import { FirebaseError } from 'firebase/app';
 
 const LoginForm = () => {
   const { language, languageData } = useContext(LanguageContext);
@@ -29,8 +31,14 @@ const LoginForm = () => {
     try {
       await loginUser(data.email, data.password);
       navigate('/graphiql');
-    } catch (e) {
-      console.error(e);
+    } catch (e: unknown) {
+      if (e instanceof FirebaseError) {
+        if (e.code === 'auth/invalid-credential') {
+          showToastError(languageData.invalidCredentials);
+        } else {
+          showToastError(languageData.somethingWentWrong);
+        }
+      }
     }
   };
 

@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router-dom';
 import { useContext, useEffect } from 'react';
 import { LanguageContext } from '../../context/localization';
 import { Box, Button } from '@mui/material';
+import { showToastError } from '../../services/toasts';
+import { FirebaseError } from 'firebase/app';
 
 const RegistrationForm = () => {
   const { language, languageData } = useContext(LanguageContext);
@@ -30,8 +32,14 @@ const RegistrationForm = () => {
     try {
       await registerUser(data.name, data.email, data.password);
       navigate('/graphiql');
-    } catch (e) {
-      console.error(e);
+    } catch (e: unknown) {
+      if (e instanceof FirebaseError) {
+        if (e.code === 'auth/email-already-in-use') {
+          showToastError(languageData.emailAlreadyRegistered);
+        } else {
+          showToastError(languageData.somethingWentWrong);
+        }
+      }
     }
   };
 
