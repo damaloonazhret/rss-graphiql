@@ -1,19 +1,13 @@
 * {
+  box-sizing: border-box;
   margin: 0px;
   padding: 0px;
-  box-sizing: border-box;
 }
-
-html,
-body,
 #root {
-  height: 100%;
+  height: 100vh;
   font-family:
     Segoe UI,
-    Roboto,
-    Helvetica Neue,
-    Arial,
-    sans-serif;
+    Roboto;
 }
 
 a {
@@ -25,7 +19,10 @@ a {
   flex-direction: column;
 }
 
-.active {
-  background: #ffffff;
-  color: #457c8b !important;
+.MuiMenu-root ul {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background-color: #90bac7;
+  padding: 4px;
 }

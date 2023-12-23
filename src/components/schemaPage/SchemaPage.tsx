@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import style from './SchemaPage.module.scss';
 import { requestSchema } from '../../services/requestSchema.ts';
 import { RootState } from '../../redux/store.ts';
@@ -13,6 +13,7 @@ import {
   setNewApiEndpoint,
   setShowInput,
 } from '../../redux/slices/apiSlice.ts';
+import { LanguageContext } from '../../context/localization.tsx';
 
 const SchemaPage = () => {
   const dispatch = useDispatch();
@@ -20,6 +21,7 @@ const SchemaPage = () => {
   const apiEndpoint = useSelector(selectApiEndpoint);
   const showInput = useSelector(selectShowInput);
   const newApi = useSelector(selectNewApi);
+  const { languageData } = useContext(LanguageContext);
 
   useEffect(() => {
     const fetchSchemaInfo = async (api: string) => {
@@ -53,7 +55,7 @@ const SchemaPage = () => {
     setShowInput(false);
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p>{languageData.loading}</p>;
   if (error)
     return (
       <p className={style.schemaError}>
@@ -64,9 +66,9 @@ const SchemaPage = () => {
 
   return (
     <div>
-      <h2>GraphQL Schema Info:</h2>
+      <h2>{languageData.schemaInfo}</h2>
       <button onClick={() => dispatch(setShowInput(true))} className={style.schemaButton}>
-        Change API
+        {languageData.changeAPI}
       </button>
       {showInput && (
         <>
@@ -74,11 +76,11 @@ const SchemaPage = () => {
             type="text"
             value={newApi}
             onChange={handleInputChange}
-            placeholder="Enter new API endpoint"
+            placeholder={languageData.newAPI}
             className={style.schemaInputChangeApi}
           />
           <button className={style.schemaButton} onClick={handleApiChange}>
-            Set API
+            {languageData.setAPI}
           </button>
         </>
       )}
