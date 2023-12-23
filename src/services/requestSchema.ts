@@ -1,4 +1,3 @@
-export const defaultAPI = 'https://rickandmortyapi.graphcdn.app/';
 const initialQuery = `
               {
                 __schema {
@@ -10,17 +9,26 @@ const initialQuery = `
                 }
               }
             `;
-export const requestSchema = async () => {
-  const response = await fetch(defaultAPI, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-    },
-    body: JSON.stringify({
-      query: initialQuery,
-    }),
-  });
-  const result = await response.json();
-  return result;
+export const requestSchema = async (apiEndpoint: string) => {
+  try {
+    const response = await fetch(apiEndpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        query: initialQuery,
+      }),
+    });
+    if (!response.ok) {
+      const errorResult = await response.json();
+      return { error: errorResult, data: null };
+    }
+
+    const result = await response.json();
+    return { error: null, data: result.data };
+  } catch (error) {
+    return { error: 'An unknown error occurred', data: null };
+  }
 };

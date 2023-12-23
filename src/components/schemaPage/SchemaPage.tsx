@@ -1,22 +1,34 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import style from './SchemaPage.module.scss';
-import { defaultAPI, requestSchema } from '../../services/requestSchema.ts';
+import { requestSchema } from '../../services/requestSchema.ts';
 import { RootState } from '../../redux/store.ts';
 import { useDispatch, useSelector } from 'react-redux';
 import { setError, setLoading, setSchemaInfo } from '../../redux/slices/schemaSlice.ts';
+import {
+  defaultAPI,
+  selectApiEndpoint,
+  selectNewApi,
+  selectShowInput,
+  setApiEndpoint,
+  setNewApiEndpoint,
+  setShowInput,
+} from '../../redux/slices/apiSlice.ts';
 
 const SchemaPage = () => {
   const dispatch = useDispatch();
   const { schemaInfo, loading, error } = useSelector((state: RootState) => state.schema);
+  const apiEndpoint = useSelector(selectApiEndpoint);
+  const showInput = useSelector(selectShowInput);
+  const newApi = useSelector(selectNewApi);
 
   useEffect(() => {
-    const fetchSchemaInfo = async () => {
+    const fetchSchemaInfo = async (api: string) => {
       dispatch(setLoading(true));
-      const result = await requestSchema();
-      console.log(result.data);
+      const result = await requestSchema(api);
+
       try {
-        if (result.errors) {
-          dispatch(setError(result.errors[0].message));
+        if (result.error) {
+          dispatch(setError(result.error));
         } else {
           dispatch(setSchemaInfo(result.data));
         }
@@ -26,23 +38,50 @@ const SchemaPage = () => {
         } else {
           dispatch(setError('An unknown error occurred'));
         }
-      } finally {
-        dispatch(setLoading(false));
       }
     };
 
-    fetchSchemaInfo();
-  }, [dispatch]);
+    fetchSchemaInfo(apiEndpoint);
+  }, [dispatch, apiEndpoint]);
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(setNewApiEndpoint(event.target.value));
+  };
+
+  const handleApiChange = () => {
+    dispatch(setApiEndpoint(newApi));
+    setShowInput(false);
+  };
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (error)
+    return (
+      <p className={style.schemaError}>
+        Error: {error}
+        <button onClick={() => dispatch(setApiEndpoint(defaultAPI))}>Reset API</button>
+      </p>
+    );
 
   return (
     <div>
       <h2>GraphQL Schema Info:</h2>
-      <button onClick={() => console.log(defaultAPI)} className={style.schemaButton}>
+      <button onClick={() => dispatch(setShowInput(true))} className={style.schemaButton}>
         Change API
       </button>
+      {showInput && (
+        <>
+          <input
+            type="text"
+            value={newApi}
+            onChange={handleInputChange}
+            placeholder="Enter new API endpoint"
+            className={style.schemaInputChangeApi}
+          />
+          <button className={style.schemaButton} onClick={handleApiChange}>
+            Set API
+          </button>
+        </>
+      )}
       <pre className={style.schema}>{JSON.stringify(schemaInfo, null, 2)}</pre>
     </div>
   );
