@@ -1,9 +1,10 @@
 import { it, describe, vi } from 'vitest';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Header from './Header';
 import { MemoryRouter } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { User } from 'firebase/auth';
+import { LanguageProvider } from '../../context/localization';
 
 describe('component Header', () => {
   vi.mock('react-firebase-hooks/auth', () => {
@@ -17,11 +18,14 @@ describe('component Header', () => {
 
     vi.mocked(useAuthState).mockReturnValue([user, false, undefined]);
     render(
-      <MemoryRouter>
-        <Header />
-      </MemoryRouter>
+      <LanguageProvider>
+        <MemoryRouter>
+          <Header />
+        </MemoryRouter>
+      </LanguageProvider>
     );
 
+    screen.debug();
     /* expect(screen.getAllByTestId('header'));
     expect(screen.getByRole('link', { name: 'Sing In' })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Sing Up' })).toBeInTheDocument(); */
