@@ -6,7 +6,6 @@ import { useEffect } from 'react';
 import GraphiqlLayout from '../components/graphiql/graphiqlLayout/GraphiqlLayout';
 
 const GraphiqlPage = () => {
-  /* const { languageData } = useContext(LanguageContext); */
   const navigate = useNavigate();
   const [user] = useAuthState(auth);
 
@@ -22,5 +21,4 @@ const GraphiqlPage = () => {
     </>
   );
 };
-
 export default GraphiqlPage;
