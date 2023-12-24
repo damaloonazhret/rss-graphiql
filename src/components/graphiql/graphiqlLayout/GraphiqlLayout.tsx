@@ -18,13 +18,13 @@ const GraphiqlLayout = () => {
               <PanelGroup autoSaveId="example" direction="vertical">
                 <>
                   <Panel className={styles.Panel} order={1} minSize={20} defaultSize={70}>
-                    <div className={styles.PanelContent}>
+                    <div className={`${styles.PanelContent} ${styles[`br-1`]}`}>
                       <QueryEditor />
                     </div>
                   </Panel>
                   <GraphiqlLayoutHandel />
                   <Panel className={styles.Panel} order={2} defaultSize={30} minSize={20}>
-                    <div className={styles.PanelContent}>
+                    <div className={`${styles.PanelContent} ${styles[`br-4`]}`}>
                       <HeadersEditor />
                       <VariablesEditor />
                     </div>
@@ -34,7 +34,7 @@ const GraphiqlLayout = () => {
             </Panel>
             <GraphiqlLayoutHandel />
             <Panel className={styles.Panel} defaultSize={50} minSize={30}>
-              <div className={styles.PanelContent}>
+              <div className={`${styles.PanelContent} ${styles[`br-2-3`]}`}>
                 <ResponseSection />
               </div>
             </Panel>
