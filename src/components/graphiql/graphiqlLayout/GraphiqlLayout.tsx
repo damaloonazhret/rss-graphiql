@@ -5,13 +5,13 @@ import HeadersEditor from '../headersEditor/HeadersEditor';
 import VariablesEditor from '../variablesEditor/VariablesEditor';
 import ResponseSection from '../responseSection/ResponseSection';
 import GraphiqlLayoutHandel from './GraphiqlLayoutHandel';
-import SchemaPage from '../../schemaPage/SchemaPage';
+/* import SchemaPage from '../../schemaPage/SchemaPage'; */
 
 const GraphiqlLayout = () => {
   return (
     <div className={styles.wrapper}>
-      <h1>GraphQL</h1>
-      <SchemaPage />
+      <h1>GraphiQL</h1>
+      {/* <SchemaPage /> */}
       <div className={styles.Container}>
         <div className={styles.TopRow}></div>
         <div className={styles.BottomRow}>

@@ -1,0 +1,24 @@
+.query-editor {
+  display: flex;
+  height: 100%;
+}
+
+.line-number {
+  display: flex;
+  flex-direction: column;
+  background: #f7f7f7;
+  color: #999999;
+  padding-left: 15px;
+  padding-right: 8px;
+  border-right: 1px solid #dddddd;
+  text-align: right;
+}
+
+.query-code {
+  padding-left: 5px;
+  color: #999999;
+}
+
+[contenteditable] {
+  outline: 0px solid transparent;
+}

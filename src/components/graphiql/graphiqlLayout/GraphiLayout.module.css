@@ -13,7 +13,7 @@
   --color-default: #ffffff;
   --color-horizontal-rule: #454950;
   --color-link: #dcadff;
-  --color-panel-background: #cccccc;
+  --color-panel-background: #ffffff;
   --color-panel-background-alternate: #202124;
   --color-solid-resize-bar: #454950;
   --color-solid-resize-bar-handle: rgba(255, 255, 255, 0.2);
@@ -43,13 +43,14 @@
   height: 100%;
   width: 100%;
   background-color: var(--color-panel-background);
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   overflow: hidden;
   border-radius: 0.5rem;
   color: var(--color-background-default);
+  min-height: 200px;
 }
 
 .ResizeHandleOuter {

@@ -31,7 +31,7 @@ const Footer = () => {
         <a href="https://rs.school/react/">
           <Box
             component="img"
-            sx={{ width: { xs: '50px', sm: '150px' } }}
+            sx={{ width: { xs: '50px', sm: '120px' } }}
             src="src/assets/img/rsschool-logo.png"
             alt="RSSchool"
           />
