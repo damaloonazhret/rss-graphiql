@@ -1,5 +1,5 @@
 import { it, describe, vi } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import Header from './Header';
 import { MemoryRouter } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -25,7 +25,6 @@ describe('component Header', () => {
       </LanguageProvider>
     );
 
-    screen.debug();
     /* expect(screen.getAllByTestId('header'));
     expect(screen.getByRole('link', { name: 'Sing In' })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Sing Up' })).toBeInTheDocument(); */
