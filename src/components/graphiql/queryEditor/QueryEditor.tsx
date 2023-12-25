@@ -1,27 +1,58 @@
 import styles from './QueryEditor.module.css';
+import { useState, useRef } from 'react';
+
+interface MyElementRefCurrent {
+  offsetHeight: number;
+}
 
 const QueryEditor = () => {
+  const initialText = '# queryEditor';
+  const [quantityLine, useQuantityLine] = useState(1);
+  const myElementRef = useRef(null);
+  const rowHeight = 21;
+
+  function handleContentChange() {
+    if (myElementRef.current) {
+      const myElementRefCurrent: MyElementRefCurrent = myElementRef.current;
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      useQuantityLine(myElementRefCurrent.offsetHeight / rowHeight);
+    }
+  }
+
   return (
-    <div className={styles['query-editor']}>
-      <div className={styles['line-number']}>
-        <span>1</span>
-        <span>2</span>
-        <span>3</span>
-        <span>4</span>
-        <span>5</span>
-        <span>6</span>
-        <span>7</span>
-        <span>8</span>
-        <span>9</span>
-        <span>10</span>
-        <span>11</span>
-      </div>
-      <div className={styles['query-code']}>
-        <div contentEditable="true" spellCheck="false" suppressContentEditableWarning={true}>
-          # query-code
+    <>
+      <button
+        onClick={() => {
+          /* useQuantityLine(); */
+        }}
+      >
+        Run
+      </button>
+      <div className={styles['query-editor']}>
+        <div className={styles['line-number']}>
+          {(() => {
+            const line = [];
+
+            for (let i = 1; i <= quantityLine; i++) {
+              line.push(<span>{i}</span>);
+            }
+
+            return line;
+          })()}
+        </div>
+        <div className={styles['query-code']}>
+          <div
+            ref={myElementRef}
+            contentEditable="true"
+            spellCheck="false"
+            suppressContentEditableWarning={true}
+            onInput={handleContentChange}
+          >
+            {initialText}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

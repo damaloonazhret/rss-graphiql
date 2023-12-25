@@ -8,10 +8,10 @@
   flex-direction: column;
   background: #f7f7f7;
   color: #999999;
-  padding-left: 15px;
   padding-right: 8px;
   border-right: 1px solid #dddddd;
   text-align: right;
+  width: 40px;
 }
 
 .query-code {

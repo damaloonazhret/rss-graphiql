@@ -11,6 +11,7 @@ const GraphiqlLayout = () => {
   return (
     <div className={styles.wrapper}>
       <h1>GraphiQL</h1>
+      <button>Run</button>
       {/* <SchemaPage /> */}
       <div className={styles.Container}>
         <div className={styles.TopRow}></div>
