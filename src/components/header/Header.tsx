@@ -25,6 +25,7 @@ const Header = () => {
     const newLanguage = language === Language.EN ? Language.RU : Language.EN;
     if (setLanguage) {
       setLanguage(newLanguage);
+      window.location.reload();
     }
   };
 
@@ -39,7 +40,7 @@ const Header = () => {
 
   const pagesLinks = () => {
     return (
-      <>
+      <div>
         <NavLink to="/">
           <Button className={styles.button} variant="contained">
             <Typography textAlign="center">{languageData.welcome}</Typography>
@@ -52,7 +53,7 @@ const Header = () => {
             </Button>
           </NavLink>
         )}
-      </>
+      </div>
     );
   };
 

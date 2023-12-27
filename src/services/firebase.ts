@@ -19,31 +19,17 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-const registerUser = async (
-  name: string,
-  email: string,
-  password: string
-): Promise<boolean | string> => {
-  try {
-    const res = await createUserWithEmailAndPassword(auth, email, password);
-    const user = res.user;
+const registerUser = async (name: string, email: string, password: string) => {
+  const res = await createUserWithEmailAndPassword(auth, email, password);
+  const user = res.user;
 
-    await updateProfile(user, {
-      displayName: name,
-    });
-
-    return true;
-  } catch (e) {
-    return 'Registration failed.';
-  }
+  await updateProfile(user, {
+    displayName: name,
+  });
 };
 
 const loginUser = async (email: string, password: string) => {
-  try {
-    await signInWithEmailAndPassword(auth, email, password);
-  } catch (e) {
-    return 'Login failed.';
-  }
+  await signInWithEmailAndPassword(auth, email, password);
 };
 
 export { auth, registerUser, loginUser };
