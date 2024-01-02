@@ -55,7 +55,7 @@ const SchemaPage = () => {
     setShowInput(false);
   };
 
-  if (loading) return <p>{languageData.loading}</p>;
+  if (loading) return <p className={style.load}>{languageData.loading}</p>;
   if (error)
     return (
       <p className={style.schemaError}>

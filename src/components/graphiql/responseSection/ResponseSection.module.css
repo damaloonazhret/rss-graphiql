@@ -1,6 +1,5 @@
 .response {
-  max-height: 62vh;
-  overflow: auto;
+  max-height: 0vh;
   font-size: 16px;
   padding: 5px;
 }

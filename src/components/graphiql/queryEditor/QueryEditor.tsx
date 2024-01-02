@@ -85,6 +85,7 @@ query {
   }
 
   const makeRequest = async () => {
+    dispatch(responseSectionActions.setResponseSectionLoad(true));
     try {
       if (myElementRef.current) {
         const response = await fetch(url, {
@@ -104,6 +105,7 @@ query {
     } catch (error) {
       console.log(error);
     }
+    dispatch(responseSectionActions.setResponseSectionLoad(false));
   };
 
   return (
