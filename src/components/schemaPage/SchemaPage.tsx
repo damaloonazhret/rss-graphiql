@@ -17,7 +17,7 @@ import { LanguageContext } from '../../context/localization.tsx';
 
 const SchemaPage = () => {
   const dispatch = useDispatch();
-  const { schemaInfo, loading, error } = useSelector((state: RootState) => state.schema);
+  const { loading, error } = useSelector((state: RootState) => state.schema);
   const apiEndpoint = useSelector(selectApiEndpoint);
   const showInput = useSelector(selectShowInput);
   const newApi = useSelector(selectNewApi);
@@ -65,8 +65,7 @@ const SchemaPage = () => {
     );
 
   return (
-    <div>
-      <h2>{languageData.schemaInfo}</h2>
+    <div className={style.apiBar}>
       <button onClick={() => dispatch(setShowInput(true))} className={style.schemaButton}>
         {languageData.changeAPI}
       </button>
@@ -84,7 +83,7 @@ const SchemaPage = () => {
           </button>
         </>
       )}
-      <pre className={style.schema}>{JSON.stringify(schemaInfo, null, 2)}</pre>
+      {/* <pre className={style.schema}>{JSON.stringify(schemaInfo, null, 2)}</pre> */}
     </div>
   );
 };
