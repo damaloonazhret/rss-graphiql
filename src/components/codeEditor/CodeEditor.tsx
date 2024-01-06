@@ -8,7 +8,11 @@ interface MyElementRefCurrent {
   offsetHeight: number;
 }
 
-const VariablesEditor = () => {
+interface Props {
+  code: string;
+}
+
+const VariablesEditor = (props: Props) => {
   const dispatch = useDispatch();
   const [quantityLine, useQuantityLine] = useState(1);
   const myElementRef = useRef<HTMLInputElement>(null);
@@ -84,9 +88,7 @@ const VariablesEditor = () => {
             onInput={handleCodeChange}
             onKeyDown={handleKeyPress}
           >
-            {`{
-    "name": "rick"
-}`}
+            {props.code}
           </pre>
         </div>
       </div>

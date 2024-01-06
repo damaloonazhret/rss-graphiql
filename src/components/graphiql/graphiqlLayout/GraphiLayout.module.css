@@ -67,6 +67,8 @@
 }
 
 .ResizeHandleInner {
+  display: flex;
+  justify-content: center;
   position: absolute;
   top: 0em;
   bottom: 0em;
@@ -75,6 +77,10 @@
   border-radius: 0em;
   background-color: var(--background-color);
   transition: background-color 0.2s linear;
+}
+
+.ResizeHandleInner img{
+    width: 16px;
 }
 
 .Icon {

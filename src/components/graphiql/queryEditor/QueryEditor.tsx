@@ -15,19 +15,23 @@ const QueryEditor = () => {
   const url = useSelector(selectApiEndpoint);
 
   const initialText = `# API - https://rickandmortyapi.graphcdn.app
-  # Comments should be deleted
-  
-  query {
-    characters{
-      results{
-        name
-      }
+# Comments should be deleted
+
+query {
+  characters{
+    results{
+      name
     }
-  }`;
+  }
+}`;
 
   const [quantityLine, useQuantityLine] = useState(1);
   const myElementRef = useRef<HTMLInputElement>(null);
   const rowHeight = 20;
+
+  const headersSectionCode = useSelector(
+    (state: RootState) => state.headersSection.headersSectionCode
+  );
 
   const variablesSectionCode = useSelector(
     (state: RootState) => state.variablesSection.variablesSectionCode
@@ -91,7 +95,8 @@ const QueryEditor = () => {
 
   const makeRequest = async () => {
     dispatch(responseSectionActions.setResponseSectionLoad(true));
-    console.log('variablesSectionCode', variablesSectionCode);
+    const headers = JSON.parse(headersSectionCode.replace(/'/g, '"'));
+
     let variablesSectionCodeParse = '';
     if (variablesSectionCode === '') {
       variablesSectionCodeParse = JSON.parse('"{}"');
@@ -103,10 +108,7 @@ const QueryEditor = () => {
       if (myElementRef.current) {
         const response = await fetch(url, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-          },
+          headers: headers,
           body: JSON.stringify({
             query: myElementRef.current.innerText.replace(/\s/g, ''),
             variables: variablesSectionCodeParse,
