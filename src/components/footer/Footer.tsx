@@ -9,7 +9,7 @@ const Footer = () => {
           <Box
             component="img"
             sx={{ width: { xs: '20px', sm: '68px' }, display: { xs: 'none', sm: 'block' } }}
-            src="/assets/img/github-logo.svg"
+            src="src/assets/img/github-logo.svg"
           />
           <Box className={styles['github-link']}>
             <a href="https://github.com/denys-bilonozhko/">
@@ -32,7 +32,7 @@ const Footer = () => {
           <Box
             component="img"
             sx={{ width: { xs: '50px', sm: '120px' } }}
-            src="/assets/img/rsschool-logo.png"
+            src="src/assets/img/rsschool-logo.png"
             alt="RSSchool"
           />
         </a>
