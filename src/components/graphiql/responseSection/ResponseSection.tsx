@@ -1,20 +1,11 @@
 import styles from './ResponseSection.module.css';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../redux/store.ts';
-
-/* interface ResponseSectionText {
-  responseSection: {
-    responseSectionText: string;
-  };
-}
-
-interface RespnseSectionLoad {
-  responseSection: {
-    responseSectionLoad: boolean;
-  };
-} */
+import { useContext } from 'react';
+import { LanguageContext } from '../../../context/localization.tsx';
 
 const ResponseSection = () => {
+  const { languageData } = useContext(LanguageContext);
   const responseSectionText = useSelector(
     (state: RootState) => state.responseSection.responseSectionText
   );
@@ -28,7 +19,7 @@ const ResponseSection = () => {
       return (
         <>
           {respnseSectionLoad ? (
-            'loading...'
+            languageData.loading
           ) : (
             <pre>{JSON.stringify(responseSectionText, null, 2)}</pre>
           )}

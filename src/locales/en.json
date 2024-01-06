@@ -27,5 +27,7 @@
   "newAPI": "Enter new API endpoint",
   "schemaInfo": "GraphQL Schema Info:",
   "changeAPI": "Change API",
-  "setAPI": "Set API"
+  "setAPI": "Set API",
+  "headers": "Headers",
+  "variables": "Variables"
 }
