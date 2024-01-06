@@ -16,7 +16,7 @@ import {
 import { LanguageContext } from '../../context/localization';
 import { auth } from '../../services/firebase';
 import { Language } from '../../types/enums';
-import styles from './header.module.css';
+import styles from './Header.module.css';
 
 const Header = () => {
   const [user] = useAuthState(auth);
