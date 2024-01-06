@@ -16,7 +16,7 @@ import {
 import { LanguageContext } from '../../context/localization';
 import { auth } from '../../services/firebase';
 import { Language } from '../../types/enums';
-import styles from './header.module.css';
+import styles from './Header.module.css';
 
 const Header = () => {
   const [user] = useAuthState(auth);
@@ -25,6 +25,7 @@ const Header = () => {
     const newLanguage = language === Language.EN ? Language.RU : Language.EN;
     if (setLanguage) {
       setLanguage(newLanguage);
+      window.location.reload();
     }
   };
 

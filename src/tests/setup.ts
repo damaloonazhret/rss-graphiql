@@ -17,6 +17,12 @@ vi.mock('firebase/auth', () => ({
   updateProfile: vi.fn(),
 }));
 
+vi.mock('react-firebase-hooks/auth', () => {
+  return {
+    useAuthState: vi.fn(),
+  };
+});
+
 beforeEach(() => {
   cleanup();
 });
