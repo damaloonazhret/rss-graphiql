@@ -134,7 +134,7 @@ query (
       <div className={styles.topBarWrap}>
         {
           <button className={styles.executeButton} onClick={makeRequest}>
-            <img src="src/assets/img/execute-button.svg"></img>
+            <img src="assets/img/execute-button.svg"></img>
           </button>
         }
       </div>

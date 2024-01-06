@@ -73,9 +73,6 @@ const HeadersEditor = () => {
 
   return (
     <>
-      <div className={styles.headersTitle}>
-        <span>Headers</span>
-      </div>
       <div className={styles.headersEditor}>
         <LineNumber quantityLine={quantityLine} />
         <div className={styles.variablesCode}>

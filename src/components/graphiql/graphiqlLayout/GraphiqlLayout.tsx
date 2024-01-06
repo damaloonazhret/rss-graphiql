@@ -12,7 +12,6 @@ const GraphiqlLayout = () => {
     <>
       <h1>GraphiQL</h1>
       <div className={styles.wrapper}>
-        {/* <button onClick={handleDataChange}>Run</button> */}
         <SchemaPage />
         <div className={styles.Container}>
           <div className={styles.TopRow}></div>
@@ -27,13 +26,18 @@ const GraphiqlLayout = () => {
                       </div>
                     </Panel>
                     <GraphiqlLayoutHandel />
+                    <div className={styles.titleSection}>
+                      <span>Headers</span>
+                    </div>
                     <Panel className={`${styles.Panel}`} order={2} defaultSize={30} minSize={0}>
                       <div className={`${styles.PanelContent}`}>
-                        {/* <HeadersEditor /> */}
                         <HeadersEditor />
                       </div>
                     </Panel>
                     <GraphiqlLayoutHandel />
+                    <div className={styles.titleSection}>
+                      <span>Variables</span>
+                    </div>
                     <Panel
                       className={`${styles.Panel} ${styles[`br-4`]}`}
                       order={2}
@@ -41,7 +45,6 @@ const GraphiqlLayout = () => {
                       minSize={0}
                     >
                       <div className={`${styles.PanelContent}`}>
-                        {/* <HeadersEditor /> */}
                         <VariablesEditor />
                       </div>
                     </Panel>

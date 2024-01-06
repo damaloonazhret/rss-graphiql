@@ -8,9 +8,6 @@ const VariablesEditor = () => {
 
   return (
     <>
-      <div className={styles.variablesTitle}>
-        <span>Variables</span>
-      </div>
       <div className={styles.variablesEditor}>
         <CodeEditor code={initCode} />
       </div>

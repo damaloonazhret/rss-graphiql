@@ -40,7 +40,7 @@ const Header = () => {
 
   const pagesLinks = () => {
     return (
-      <div>
+      <div className={styles.mainMenu}>
         <NavLink to="/">
           <Button className={styles.button} variant="contained">
             <Typography textAlign="center">{languageData.welcome}</Typography>

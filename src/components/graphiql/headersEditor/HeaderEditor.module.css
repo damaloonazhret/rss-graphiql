@@ -13,18 +13,3 @@
 [contenteditable] {
   outline: 0px solid transparent;
 }
-
-.headersTitle {
-  
-  display: flex;
-  align-items: center;
-  height: 30px;
-  border-bottom: 1px solid #cccc;
-  background: linear-gradient(#f7f7f7, #e2e2e2);
-  padding: 0 10px;
-}
-
-.headersTitle span {
-  color: #969696;
-  font-weight: 700;
-}
