@@ -22,5 +22,10 @@
   "invalidCredentials": "Неверные учетные данные",
   "somethingWentWrong": "Ошибка",
   "emailAlreadyRegistered": "Электронная почта уже зарегистрирована",
-  "loginSuccess": "Вход успешен"
+  "loginSuccess": "Вход успешен",
+  "loading": "Загрузка...",
+  "newAPI": "Введите новую конечную точку АПИ",
+  "schemaInfo": "GraphQL структурная схема:",
+  "changeAPI": "Поменять АПИ",
+  "setAPI": "Установить АПИ"
 }

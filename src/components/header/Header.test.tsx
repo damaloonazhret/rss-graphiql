@@ -1,9 +1,9 @@
 import { User } from 'firebase/auth';
+import { LanguageProvider } from '../../context/localization';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { MemoryRouter } from 'react-router-dom';
 import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { LanguageProvider } from '../../context/localization';
 import Header from './Header';
 
 describe('component Header', () => {

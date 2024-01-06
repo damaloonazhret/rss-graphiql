@@ -22,5 +22,10 @@
   "invalidCredentials": "Invalid credentials",
   "somethingWentWrong": "Something went wrong",
   "emailAlreadyRegistered": "Email already registered",
-  "loginSuccess": "Login success"
+  "loginSuccess": "Login success",
+  "loading": "Loading...",
+  "newAPI": "Enter new API endpoint",
+  "schemaInfo": "GraphQL Schema Info:",
+  "changeAPI": "Change API",
+  "setAPI": "Set API"
 }
