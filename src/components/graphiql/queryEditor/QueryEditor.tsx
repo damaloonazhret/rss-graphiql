@@ -2,7 +2,9 @@ import styles from './QueryEditor.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { responseSectionActions } from '../../../redux/slices/respnoseSectionSlice';
 import { useState, useRef } from 'react';
-import { selectNewApi } from '../../../redux/slices/apiSlice';
+import { selectApiEndpoint } from '../../../redux/slices/apiSlice';
+import LineNumber from '../../lineNumber/LineNumber';
+import { RootState } from '../../../redux/store.ts';
 
 interface MyElementRefCurrent {
   offsetHeight: number;
@@ -10,23 +12,26 @@ interface MyElementRefCurrent {
 
 const QueryEditor = () => {
   const dispatch = useDispatch();
-  const url = useSelector(selectNewApi);
+  const url = useSelector(selectApiEndpoint);
 
-  const initialText = `# Example
-# API - https://rickandmortyapi.graphcdn.app
-# Comments should be deleted
-
-query {
-  characters{
-    results{
-      name
+  const initialText = `# API - https://rickandmortyapi.graphcdn.app
+  # Comments should be deleted
+  
+  query {
+    characters{
+      results{
+        name
+      }
     }
-  }
-}`;
+  }`;
 
   const [quantityLine, useQuantityLine] = useState(1);
   const myElementRef = useRef<HTMLInputElement>(null);
   const rowHeight = 20;
+
+  const variablesSectionCode = useSelector(
+    (state: RootState) => state.variablesSection.variablesSectionCode
+  );
 
   function handleCodeChange() {
     if (myElementRef.current) {
@@ -86,6 +91,14 @@ query {
 
   const makeRequest = async () => {
     dispatch(responseSectionActions.setResponseSectionLoad(true));
+    console.log('variablesSectionCode', variablesSectionCode);
+    let variablesSectionCodeParse = '';
+    if (variablesSectionCode === '') {
+      variablesSectionCodeParse = JSON.parse('"{}"');
+    } else {
+      variablesSectionCodeParse = JSON.parse(variablesSectionCode);
+    }
+
     try {
       if (myElementRef.current) {
         const response = await fetch(url, {
@@ -96,6 +109,7 @@ query {
           },
           body: JSON.stringify({
             query: myElementRef.current.innerText.replace(/\s/g, ''),
+            variables: variablesSectionCodeParse,
           }),
         });
 
@@ -118,17 +132,7 @@ query {
         }
       </div>
       <div className={styles.queryEditor}>
-        <div className={styles.lineNumber}>
-          {(() => {
-            const line = [];
-
-            for (let i = 1; i <= quantityLine; i++) {
-              line.push(<span>{i}</span>);
-            }
-
-            return line;
-          })()}
-        </div>
+        <LineNumber quantityLine={quantityLine} />
         <div className={styles.queryCode}>
           <pre
             ref={myElementRef}

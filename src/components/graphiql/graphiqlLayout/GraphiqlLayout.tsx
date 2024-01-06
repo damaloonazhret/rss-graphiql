@@ -1,7 +1,7 @@
 import styles from './GraphiLayout.module.css';
 import { Panel, PanelGroup } from 'react-resizable-panels';
 import QueryEditor from '../queryEditor/QueryEditor';
-import HeadersEditor from '../headersEditor/HeadersEditor';
+/* import HeadersEditor from '../headersEditor/HeadersEditor'; */
 import VariablesEditor from '../variablesEditor/VariablesEditor';
 import ResponseSection from '../responseSection/ResponseSection';
 import GraphiqlLayoutHandel from './GraphiqlLayoutHandel';
@@ -31,10 +31,10 @@ const GraphiqlLayout = () => {
                       className={`${styles.Panel} ${styles[`br-4`]}`}
                       order={2}
                       defaultSize={30}
-                      minSize={20}
+                      minSize={0}
                     >
                       <div className={`${styles.PanelContent}`}>
-                        <HeadersEditor />
+                        {/* <HeadersEditor /> */}
                         <VariablesEditor />
                       </div>
                     </Panel>
