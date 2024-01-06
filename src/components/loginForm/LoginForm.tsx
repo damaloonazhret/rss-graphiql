@@ -28,7 +28,7 @@ const LoginForm = () => {
   const handleFormSubmit = async (data: { email: string; password: string }) => {
     try {
       await loginUser(data.email, data.password);
-      navigate('/graphiql');
+      navigate('/');
     } catch (e) {
       console.error(e);
     }

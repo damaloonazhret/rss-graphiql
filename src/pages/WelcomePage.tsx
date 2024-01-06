@@ -1,14 +1,7 @@
-import { useContext } from 'react';
-import { LanguageContext } from '../context/localization';
+import About from '../components/welcimePage/About.tsx';
 
 const WelcomePage = () => {
-  const { languageData } = useContext(LanguageContext);
-
-  return (
-    <>
-      <h1>{languageData.welcome}</h1>
-    </>
-  );
+  return <About />;
 };
 
 export default WelcomePage;
