@@ -40,5 +40,7 @@
   "altPhoto": "Members photo",
   "setAPI": "Set API",
   "headers": "Headers",
-  "variables": "Variables"
+  "variables": "Variables",
+  "buttonH": "H",
+  "buttonV": "V"
 }

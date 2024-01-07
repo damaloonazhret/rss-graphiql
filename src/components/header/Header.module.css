@@ -19,3 +19,8 @@
     padding: 0px;
   }
 }
+
+.mainMenu{
+  display: flex;
+  gap: 5px;
+}

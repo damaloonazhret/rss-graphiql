@@ -6,6 +6,9 @@ import { selectApiEndpoint } from '../../../redux/slices/apiSlice';
 import LineNumber from '../../lineNumber/LineNumber';
 import { RootState } from '../../../redux/store.ts';
 import dynamicAddSymbol from '../../../services/dynamicAddSymbol';
+import { closingButtonActions } from '../../../redux/slices/closingButtonSlice.ts';
+import { useContext } from 'react';
+import { LanguageContext } from '../../../context/localization.tsx';
 
 interface MyElementRefCurrent {
   offsetHeight: number;
@@ -14,6 +17,7 @@ interface MyElementRefCurrent {
 const QueryEditor = () => {
   const dispatch = useDispatch();
   const url = useSelector(selectApiEndpoint);
+  const { languageData } = useContext(LanguageContext);
 
   const initialText = `# API - https://rickandmortyapi.graphcdn.app
 # Comments should be deleted
@@ -34,6 +38,13 @@ query (
   const [quantityLine, setQuantityLine] = useState(1);
   const myElementRef = useRef<HTMLInputElement>(null);
   const rowHeight = 20;
+  const closingButtonHeaders = useSelector(
+    (state: RootState) => state.closingButton.stateClosingHeaders
+  );
+
+  const closingButtonVariables = useSelector(
+    (state: RootState) => state.closingButton.stateClosingVariables
+  );
 
   const headersSectionCode = useSelector(
     (state: RootState) => state.headersSection.headersSectionCode
@@ -51,6 +62,22 @@ query (
   }
 
   setTimeout(handleCodeChange, 0);
+
+  function closingButtonH() {
+    if (!closingButtonHeaders) {
+      dispatch(closingButtonActions.setClosingButtonHeadresSlice(true));
+    } else {
+      dispatch(closingButtonActions.setClosingButtonHeadresSlice(false));
+    }
+  }
+
+  function closingButtonV() {
+    if (!closingButtonVariables) {
+      dispatch(closingButtonActions.setClosingButtonVariablesSlice(true));
+    } else {
+      dispatch(closingButtonActions.setClosingButtonVariablesSlice(false));
+    }
+  }
 
   const makeRequest = async () => {
     dispatch(responseSectionActions.setResponseSectionLoad(true));
@@ -86,11 +113,15 @@ query (
   return (
     <>
       <div className={styles.topBarWrap}>
-        {
-          <button className={styles.executeButton} onClick={makeRequest}>
-            <img src="assets/img/execute-button.svg"></img>
-          </button>
-        }
+        <button className={styles.executeButton} onClick={makeRequest}>
+          <img src="assets/img/execute-button.svg"></img>
+        </button>
+        <button className={styles.closingButton} onClick={closingButtonH}>
+          <span>{languageData.buttonH}</span>
+        </button>
+        <button className={styles.closingButton} onClick={closingButtonV}>
+          <span>{languageData.buttonV}</span>
+        </button>
       </div>
       <div className={styles.queryEditor}>
         <LineNumber quantityLine={quantityLine} />

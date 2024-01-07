@@ -40,5 +40,7 @@
   "altPhoto": "Фото участника",
   "setAPI": "Установить АПИ",
   "headers": "Заголовки",
-  "variables": "Переменные"
+  "variables": "Переменные",
+  "buttonH": "З",
+  "buttonV": "П"
 }

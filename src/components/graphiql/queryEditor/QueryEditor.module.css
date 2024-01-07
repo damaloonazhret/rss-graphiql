@@ -46,3 +46,19 @@
 .executeButton img {
   width: 23px;
 }
+
+.closingButton {
+  width: 32px;
+  height: 32px;
+  border-radius: 5px;
+  border: solid 1px #999999;
+  line-height: 32px;
+  cursor: pointer;
+  background: linear-gradient(#fdfdfd, #d2d3d6);
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.closingButton:hover{
+    opacity: 0.7;
+}

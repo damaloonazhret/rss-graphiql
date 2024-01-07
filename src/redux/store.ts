@@ -4,6 +4,7 @@ import apiReducer from './slices/apiSlice.ts';
 import { responseSectionReducer } from './slices/respnoseSectionSlice';
 import { headersSectionReducer } from './slices/headersSectionSlice';
 import { variablesSectionReducer } from './slices/variablesSectionSlice';
+import { closingButtonReducer } from './slices/closingButtonSlice.ts';
 
 const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
     headersSection: headersSectionReducer,
     variablesSection: variablesSectionReducer,
     responseSection: responseSectionReducer,
+    closingButton: closingButtonReducer,
   },
 });
 export default store;

@@ -12,6 +12,9 @@ exports[`component GraphiqlLayout > Test - GraphiqlLayout 1`] = `
       class="_load_8c5fc8"
     />
     <div
+      class="_closingButton_fcb557"
+    />
+    <div
       class="_Container_fcb557"
     >
       <div
@@ -62,6 +65,16 @@ exports[`component GraphiqlLayout > Test - GraphiqlLayout 1`] = `
                       <img
                         src="assets/img/execute-button.svg"
                       />
+                    </button>
+                    <button
+                      class="_closingButton_827f5a"
+                    >
+                      <span />
+                    </button>
+                    <button
+                      class="_closingButton_827f5a"
+                    >
+                      <span />
                     </button>
                   </div>
                   <div
