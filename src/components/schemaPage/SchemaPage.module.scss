@@ -31,3 +31,11 @@
 .load {
   height: 50px;
 }
+
+.apiBar {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  width: 50%;
+  column-gap: 2%;
+  transition: 1s ease-in-out;
+}
