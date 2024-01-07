@@ -14,7 +14,7 @@ const ResponseSection = () => {
     (state: RootState) => state.responseSection.responseSectionLoad
   );
 
-  function abc() {
+  function showResponseSection() {
     if (responseSectionText != '') {
       return (
         <>
@@ -29,7 +29,11 @@ const ResponseSection = () => {
     return <></>;
   }
 
-  return <div className={styles.response}>{abc()}</div>;
+  return (
+    <div className={styles.response} data-testid="ResponseSection">
+      {showResponseSection()}
+    </div>
+  );
 };
 
 export default ResponseSection;
