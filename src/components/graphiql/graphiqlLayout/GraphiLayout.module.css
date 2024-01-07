@@ -113,3 +113,7 @@
   color: #969696;
   font-weight: 700;
 }
+
+.closingButton {
+  position: absolute;
+}
