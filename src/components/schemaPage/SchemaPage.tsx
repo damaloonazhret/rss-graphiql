@@ -52,7 +52,7 @@ const SchemaPage = () => {
 
   const handleApiChange = () => {
     dispatch(setApiEndpoint(newApi));
-    setShowInput(false);
+    dispatch(setShowInput(false));
   };
 
   if (loading) return <p className={style.load}>{languageData.loading}</p>;
@@ -83,7 +83,6 @@ const SchemaPage = () => {
           </button>
         </>
       )}
-      {/* <pre className={style.schema}>{JSON.stringify(schemaInfo, null, 2)}</pre> */}
     </div>
   );
 };
