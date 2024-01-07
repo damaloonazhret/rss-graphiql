@@ -1,4 +1,3 @@
-//dynamically adding a character
 export default function dynamicAddSymbol(event: React.KeyboardEvent<HTMLInputElement>) {
   function addSymbol(symbol: string) {
     event.preventDefault();
@@ -11,7 +10,6 @@ export default function dynamicAddSymbol(event: React.KeyboardEvent<HTMLInputEle
       range.insertNode(tab);
       range.setStartAfter(tab);
 
-      // move the text cursor to the left position
       const selection = window.getSelection();
       if (selection) {
         selection.modify('move', 'backward', 'character');

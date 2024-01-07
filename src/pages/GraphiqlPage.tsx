@@ -2,7 +2,6 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../services/firebase';
 import { useEffect } from 'react';
-/* import { LanguageContext } from '../context/localization'; */
 import GraphiqlLayout from '../components/graphiql/graphiqlLayout/GraphiqlLayout';
 
 const GraphiqlPage = () => {
