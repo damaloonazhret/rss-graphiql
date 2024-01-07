@@ -1,0 +1,54 @@
+.welcome {
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 1vw;
+}
+
+.welcomeInfo {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  padding-bottom: 5px;
+}
+
+.image {
+  width: 8vw;
+  border-radius: 50%;
+  transition: 0.4s ease-in-out;
+  &:hover {
+    transform: scale(1.03);
+    border-radius: 45%;
+  }
+}
+
+.card {
+  border: 2px solid #2d444d;
+  border-radius: 10px;
+  padding: 5px;
+  text-align: center;
+  box-shadow: 1px 1px rgba(45, 68, 77, 0.6);
+}
+
+.info {
+  display: grid;
+  gap: 1vw;
+}
+
+.memberName {
+  transition: 0.4s ease-in-out;
+  &:hover {
+    color: #2d444d;
+  }
+}
+
+
+.linkToCourse {
+  color: 2d444d;
+  &:visited {
+    color: 2d444d;
+  }
+  &:active {
+    color: #2d444d;
+  }
+}
