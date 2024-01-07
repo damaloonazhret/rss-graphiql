@@ -1,0 +1,268 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`component GraphiqlLayout > Test - GraphiqlLayout 1`] = `
+<div>
+  <h1>
+    GraphiQL
+  </h1>
+  <div
+    class="_wrapper_fcb557"
+  >
+    <p
+      class="_load_8c5fc8"
+    />
+    <div
+      class="_Container_fcb557"
+    >
+      <div
+        class="_TopRow_fcb557"
+      />
+      <div
+        class="_BottomRow_fcb557"
+      >
+        <div
+          class=""
+          data-panel-group=""
+          data-panel-group-direction="horizontal"
+          data-panel-group-id=":r0:"
+          style="display: flex; flex-direction: row; height: 100%; overflow: hidden; width: 100%;"
+        >
+          <div
+            class=""
+            data-panel=""
+            data-panel-group-id=":r0:"
+            data-panel-id=":r1:"
+            data-panel-size="1.0"
+            style="flex-basis: 0px; flex-grow: 1; flex-shrink: 1; overflow: hidden;"
+          >
+            <div
+              class=""
+              data-panel-group=""
+              data-panel-group-direction="vertical"
+              data-panel-group-id=":r2:"
+              style="display: flex; flex-direction: column; height: 100%; overflow: hidden; width: 100%;"
+            >
+              <div
+                class="_Panel_fcb557"
+                data-panel=""
+                data-panel-group-id=":r2:"
+                data-panel-id=":r3:"
+                data-panel-size="1.0"
+                style="flex-basis: 0px; flex-grow: 1; flex-shrink: 1; overflow: hidden;"
+              >
+                <div
+                  class="_PanelContent_fcb557"
+                >
+                  <div
+                    class="_topBarWrap_827f5a"
+                  >
+                    <button
+                      class="_executeButton_827f5a"
+                    >
+                      <img
+                        src="assets/img/execute-button.svg"
+                      />
+                    </button>
+                  </div>
+                  <div
+                    class="_queryEditor_827f5a"
+                  >
+                    <div
+                      class="_lineNumber_68915d"
+                    >
+                      <span>
+                        1
+                      </span>
+                    </div>
+                    <div
+                      class="_queryCode_827f5a"
+                    >
+                      <pre
+                        contenteditable="true"
+                        spellcheck="false"
+                      >
+                        # API - https://rickandmortyapi.graphcdn.app
+# Comments should be deleted
+
+query (
+  $name: String!
+){
+  
+  characters(filter:{
+    name: $name 
+  }){
+    results {
+      name
+    }
+  }
+}
+                      </pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="_ResizeHandleOuter_fcb557 "
+                data-panel-group-direction="vertical"
+                data-panel-group-id=":r2:"
+                data-panel-resize-handle-enabled="true"
+                data-panel-resize-handle-id=":r4:"
+                data-resize-handle=""
+                role="separator"
+                style="cursor: ns-resize; user-select: none;"
+                tabindex="0"
+              >
+                <div
+                  class="_ResizeHandleInner_fcb557"
+                >
+                  <img
+                    src="assets/img/three-point.svg"
+                  />
+                </div>
+              </div>
+              <div
+                class="_titleSection_fcb557"
+              >
+                <span />
+              </div>
+              <div
+                class="_Panel_fcb557"
+                data-panel=""
+                data-panel-group-id=":r2:"
+                data-panel-id=":r5:"
+                data-panel-size="1.0"
+                style="flex-basis: 0px; flex-grow: 1; flex-shrink: 1; overflow: hidden;"
+              >
+                <div
+                  class="_PanelContent_fcb557"
+                >
+                  <div
+                    class="_headersEditor_c239a6"
+                  >
+                    <div
+                      class="_lineNumber_68915d"
+                    >
+                      <span>
+                        1
+                      </span>
+                    </div>
+                    <div
+                      class="_variablesCode_c239a6"
+                    >
+                      <pre
+                        contenteditable="true"
+                        spellcheck="false"
+                      >
+                        {
+  'Content-Type': 'application/json'
+}
+                      </pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="_ResizeHandleOuter_fcb557 "
+                data-panel-group-direction="vertical"
+                data-panel-group-id=":r2:"
+                data-panel-resize-handle-enabled="true"
+                data-panel-resize-handle-id=":r6:"
+                data-resize-handle=""
+                role="separator"
+                style="cursor: ns-resize; user-select: none;"
+                tabindex="0"
+              >
+                <div
+                  class="_ResizeHandleInner_fcb557"
+                >
+                  <img
+                    src="assets/img/three-point.svg"
+                  />
+                </div>
+              </div>
+              <div
+                class="_titleSection_fcb557"
+              >
+                <span />
+              </div>
+              <div
+                class="_Panel_fcb557 _br-4_fcb557"
+                data-panel=""
+                data-panel-group-id=":r2:"
+                data-panel-id=":r7:"
+                data-panel-size="1.0"
+                style="flex-basis: 0px; flex-grow: 1; flex-shrink: 1; overflow: hidden;"
+              >
+                <div
+                  class="_PanelContent_fcb557"
+                >
+                  <div
+                    class="_variablesEditor_f99b51"
+                    data-testid="variablesEditor"
+                  >
+                    <div
+                      class="_lineNumber_68915d"
+                    >
+                      <span>
+                        1
+                      </span>
+                    </div>
+                    <div
+                      class="_variablesCode_f99b51"
+                    >
+                      <pre
+                        contenteditable="true"
+                        spellcheck="false"
+                      >
+                        {
+    "name": "rick"
+}
+                      </pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="_ResizeHandleOuter_fcb557 "
+            data-panel-group-direction="horizontal"
+            data-panel-group-id=":r0:"
+            data-panel-resize-handle-enabled="true"
+            data-panel-resize-handle-id=":r8:"
+            data-resize-handle=""
+            role="separator"
+            style="cursor: ew-resize; user-select: none;"
+            tabindex="0"
+          >
+            <div
+              class="_ResizeHandleInner_fcb557"
+            >
+              <img
+                src="assets/img/three-point.svg"
+              />
+            </div>
+          </div>
+          <div
+            class="_Panel_fcb557 _br-3_fcb557"
+            data-panel=""
+            data-panel-group-id=":r0:"
+            data-panel-id=":r9:"
+            data-panel-size="1.0"
+            style="flex-basis: 0px; flex-grow: 1; flex-shrink: 1; overflow: hidden;"
+          >
+            <div
+              class="_PanelContent_fcb557"
+            >
+              <div
+                class="_response_91803e"
+                data-testid="ResponseSection"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

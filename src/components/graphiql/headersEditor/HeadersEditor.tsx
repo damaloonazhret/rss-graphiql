@@ -3,6 +3,7 @@ import LineNumber from '../../lineNumber/LineNumber';
 import { useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { headersSectionActions } from '../../../redux/slices/headersSectionSlice';
+import dynamicAddSymbol from '../../../services/dynamicAddSymbol';
 
 interface MyElementRefCurrent {
   offsetHeight: number;
@@ -25,52 +26,6 @@ const HeadersEditor = () => {
 
   setTimeout(handleCodeChange, 0);
 
-  //dynamically adding a character
-  function handleKeyPress(event: React.KeyboardEvent<HTMLInputElement>) {
-    function addSymbol(symbol: string) {
-      event.preventDefault();
-
-      const getSelection = window.getSelection();
-
-      if (getSelection) {
-        const range = getSelection.getRangeAt(0);
-        const tab = document.createTextNode(symbol);
-        range.insertNode(tab);
-        range.setStartAfter(tab);
-
-        // move the text cursor to the left position
-        const selection = window.getSelection();
-        if (selection) {
-          selection.modify('move', 'backward', 'character');
-        }
-      }
-    }
-
-    if (event.key === 'Tab') {
-      addSymbol('\u00a0\u00a0\u00a0\u00a0');
-    }
-
-    if (event.key === "'") {
-      addSymbol("''");
-    }
-
-    if (event.key === '"') {
-      addSymbol('""');
-    }
-
-    if (event.key === '(') {
-      addSymbol('()');
-    }
-
-    if (event.key === '{') {
-      addSymbol('{}');
-    }
-
-    if (event.key === '[') {
-      addSymbol('[]');
-    }
-  }
-
   return (
     <>
       <div className={styles.headersEditor}>
@@ -82,7 +37,7 @@ const HeadersEditor = () => {
             spellCheck="false"
             suppressContentEditableWarning={true}
             onInput={handleCodeChange}
-            onKeyDown={handleKeyPress}
+            onKeyDown={dynamicAddSymbol}
           >
             {`{
   'Content-Type': 'application/json'

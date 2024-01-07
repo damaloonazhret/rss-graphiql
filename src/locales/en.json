@@ -27,7 +27,6 @@
   "newAPI": "Enter new API endpoint",
   "schemaInfo": "GraphQL Schema Info:",
   "changeAPI": "Change API",
-  "setAPI": "Set API",
   "Denis": "Denis",
   "DenisInfo": "Denis took on the role of team lead and made a great contribution to the development\n                of the project, Denis was involved in setup, routing and also ensured that the\n                deployment was always up to date and working, Denis also made a pull request for\n                cross-check verification",
   "Evgeniy": "Evgeniy",
@@ -38,5 +37,7 @@
   "aboutCourse": "\n          The web application was created by a team of developers from the RSSchool course. all\n          requirements and implementation features are dictated by the requirements for the task.\n          The course is simply excellent and wonderful! I advise everyone, if you want to sign up,\n          here are the links to view the future schedule.\n        ",
   "linkToCourse": "Sign up for a course!",
   "altPhoto": "Members photo",
-  "setAPI": "Set API"
+  "setAPI": "Set API",
+  "headers": "Headers",
+  "variables": "Variables"
 }

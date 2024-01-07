@@ -6,8 +6,11 @@ import VariablesEditor from '../variablesEditor/VariablesEditor';
 import ResponseSection from '../responseSection/ResponseSection';
 import GraphiqlLayoutHandel from './GraphiqlLayoutHandel';
 import SchemaPage from '../../schemaPage/SchemaPage';
+import { useContext } from 'react';
+import { LanguageContext } from '../../../context/localization.tsx';
 
 const GraphiqlLayout = () => {
+  const { languageData } = useContext(LanguageContext);
   return (
     <>
       <h1>GraphiQL</h1>
@@ -27,7 +30,7 @@ const GraphiqlLayout = () => {
                     </Panel>
                     <GraphiqlLayoutHandel />
                     <div className={styles.titleSection}>
-                      <span>Headers</span>
+                      <span>{languageData.headers}</span>
                     </div>
                     <Panel className={`${styles.Panel}`} order={2} defaultSize={30} minSize={0}>
                       <div className={`${styles.PanelContent}`}>
@@ -36,7 +39,7 @@ const GraphiqlLayout = () => {
                     </Panel>
                     <GraphiqlLayoutHandel />
                     <div className={styles.titleSection}>
-                      <span>Variables</span>
+                      <span>{languageData.variables}</span>
                     </div>
                     <Panel
                       className={`${styles.Panel} ${styles[`br-4`]}`}
