@@ -8,6 +8,7 @@
   "email": "Электронная почта",
   "password": "Пароль",
   "passwordConfirm": "Подтвердите пароль",
+  "welcomePage": "О проекте",
   "welcome": "Добро пожаловать",
   "graphiqlPage": "Страница GraphiQL",
   "nameRequired": "Введите имя",

@@ -43,7 +43,7 @@ const Header = () => {
       <div className={styles.mainMenu}>
         <NavLink to="/">
           <Button className={styles.button} variant="contained">
-            <Typography textAlign="center">{languageData.welcome}</Typography>
+            <Typography textAlign="center">{languageData.welcomePage}</Typography>
           </Button>
         </NavLink>
         {user && (
