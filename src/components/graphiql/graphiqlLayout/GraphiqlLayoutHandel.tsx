@@ -12,7 +12,7 @@ export default function GraphiqlLayoutHandel({
   return (
     <PanelResizeHandle className={[styles.ResizeHandleOuter, className].join(' ')} id={id}>
       <div className={styles.ResizeHandleInner}>
-        <img src="src/assets/img/three-point.svg"></img>
+        <img src="assets/img/three-point.svg"></img>
       </div>
     </PanelResizeHandle>
   );

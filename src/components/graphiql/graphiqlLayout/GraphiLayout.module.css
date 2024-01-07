@@ -79,8 +79,8 @@
   transition: background-color 0.2s linear;
 }
 
-.ResizeHandleInner img{
-    width: 16px;
+.ResizeHandleInner img {
+  width: 16px;
 }
 
 .Icon {
@@ -98,4 +98,18 @@
 
 .br-4 {
   border-radius: 0 0 0 5px;
+}
+
+.titleSection {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  border-bottom: 1px solid #cccc;
+  background: linear-gradient(#f7f7f7, #e2e2e2);
+  padding: 0 10px;
+}
+
+.titleSection span {
+  color: #969696;
+  font-weight: 700;
 }

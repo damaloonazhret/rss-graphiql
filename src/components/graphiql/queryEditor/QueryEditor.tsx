@@ -17,9 +17,14 @@ const QueryEditor = () => {
   const initialText = `# API - https://rickandmortyapi.graphcdn.app
 # Comments should be deleted
 
-query {
-  characters{
-    results{
+query (
+  $name: String!
+){
+  
+  characters(filter:{
+    name: $name 
+  }){
+    results {
       name
     }
   }
@@ -129,7 +134,7 @@ query {
       <div className={styles.topBarWrap}>
         {
           <button className={styles.executeButton} onClick={makeRequest}>
-            <img src="src/assets/img/execute-button.svg"></img>
+            <img src="assets/img/execute-button.svg"></img>
           </button>
         }
       </div>

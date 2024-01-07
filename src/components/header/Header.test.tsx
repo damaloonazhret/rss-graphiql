@@ -1,48 +1,62 @@
-import { it, describe, vi } from 'vitest';
-import { render } from '@testing-library/react';
-import Header from './Header';
-import { MemoryRouter } from 'react-router-dom';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import { User } from 'firebase/auth';
 import { LanguageProvider } from '../../context/localization';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { MemoryRouter } from 'react-router-dom';
+import { describe, expect, it, vi } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import Header from './Header';
 
 describe('component Header', () => {
-  vi.mock('react-firebase-hooks/auth', () => {
-    return {
-      useAuthState: vi.fn(),
-    };
-  });
-
   it('Test - when the user is not logged in', () => {
-    const user = null as unknown as User;
-
-    vi.mocked(useAuthState).mockReturnValue([user, false, undefined]);
+    vi.mocked(useAuthState).mockReturnValue([null, false, undefined]);
     render(
-      <LanguageProvider>
-        <MemoryRouter>
+      <MemoryRouter>
+        <LanguageProvider>
           <Header />
-        </MemoryRouter>
-      </LanguageProvider>
+        </LanguageProvider>
+      </MemoryRouter>
     );
 
-    /* expect(screen.getAllByTestId('header'));
-    expect(screen.getByRole('link', { name: 'Sing In' })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'Sing Up' })).toBeInTheDocument(); */
+    expect(screen.getByTestId('header'));
+    expect(screen.getByRole('link', { name: 'Login' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Register' })).toBeInTheDocument();
   });
 
   it('Test - when the user is logged in', () => {
-    const user = {
-      email: 'evgeniy@a.ru',
-    } as unknown as User;
+    const user: User = {
+      email: 'test@test.com',
+      emailVerified: true,
+      isAnonymous: false,
+      displayName: 'Test User',
+      uid: '123',
+      photoURL: null,
+      phoneNumber: null,
+      providerId: 'test',
+      metadata: {
+        creationTime: 'test',
+        lastSignInTime: 'test',
+      },
+      providerData: [],
+      tenantId: null,
+      refreshToken: 'test',
+      getIdToken: vi.fn(),
+      getIdTokenResult: vi.fn(),
+      reload: vi.fn(),
+      delete: vi.fn(),
+      toJSON: vi.fn(),
+    };
 
     vi.mocked(useAuthState).mockReturnValue([user, false, undefined]);
     render(
       <MemoryRouter>
-        <Header />
+        <LanguageProvider>
+          <Header />
+        </LanguageProvider>
       </MemoryRouter>
     );
 
-    /* expect(screen.getAllByTestId('header'));
-    expect(screen.getByRole('button', { name: 'Sign out' })).toBeInTheDocument(); */
+    expect(screen.getAllByTestId('header'));
+    expect(screen.getByText('test@test.com')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Logout' })).toBeInTheDocument();
   });
 });
