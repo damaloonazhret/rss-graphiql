@@ -48,11 +48,6 @@
   background-color: var(--color-panel-background);
   overflow: auto;
   color: var(--color-background-default);
-  /* display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center; */
-  /* border-radius: 0.5rem; */
 }
 
 .ResizeHandleOuter {

@@ -26,7 +26,7 @@ const LoginForm = () => {
     try {
       await loginUser(data.email, data.password);
       showToastSuccess(languageData.loginSuccess);
-      navigate('/');
+      navigate('/graphiql');
     } catch (e: unknown) {
       if (e instanceof FirebaseError) {
         if (e.code === 'auth/invalid-credential') {
