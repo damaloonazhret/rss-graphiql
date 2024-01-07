@@ -15,15 +15,14 @@ const VariablesEditor = () => {
 }`;
 
   const dispatch = useDispatch();
-  const [quantityLine, useQuantityLine] = useState(1);
+  const [quantityLine, setQuantityLine] = useState(1);
   const myElementRef = useRef<HTMLInputElement>(null);
   const rowHeight = 20;
 
   function handleCodeChange() {
     if (myElementRef.current) {
       const myElementRefCurrent: MyElementRefCurrent = myElementRef.current;
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      useQuantityLine(myElementRefCurrent.offsetHeight / rowHeight);
+      setQuantityLine(myElementRefCurrent.offsetHeight / rowHeight);
       dispatch(variablesSectionActions.setVariablesSectionCode(myElementRef.current.innerText));
     }
   }
