@@ -27,5 +27,16 @@
   "newAPI": "Enter new API endpoint",
   "schemaInfo": "GraphQL Schema Info:",
   "changeAPI": "Change API",
+  "setAPI": "Set API",
+  "Denis": "Denis",
+  "DenisInfo": "Denis took on the role of team lead and made a great contribution to the development\n                of the project, Denis was involved in setup, routing and also ensured that the\n                deployment was always up to date and working, Denis also made a pull request for\n                cross-check verification",
+  "Evgeniy": "Evgeniy",
+  "EvgeniyInfo": "In this project, Zhenya tried to demonstrate his programming skills and did\n                everything that was given to him, namely, in his part, there were tasks such as\n                query query editor, variable and header editor, and Zhenya also worked on basic\n                styles",
+  "Andrey": "Andrey",
+  "AndreyInfo": "In this project, Andrey also worked on queries in the graphQL, introduced redux into\n                the project and wrote reducers and the main state in order to be able to make\n                queries on the graphQL and change the endpoint, Andrey also worked on fixing bugs",
+  "aboutProject": "\n          This web application was created so that you can test a request for a graphQL, in it you\n          can change the final address for the request (endpoint), you can change the body of the\n          request and, of course, see the response from the server to your request, you can request\n          the general graphQL scheme and much more, the application has Russian and English\n          localization\n        ",
+  "aboutCourse": "\n          The web application was created by a team of developers from the RSSchool course. all\n          requirements and implementation features are dictated by the requirements for the task.\n          The course is simply excellent and wonderful! I advise everyone, if you want to sign up,\n          here are the links to view the future schedule.\n        ",
+  "linkToCourse": "Sign up for a course!",
+  "altPhoto": "Members photo",
   "setAPI": "Set API"
 }
